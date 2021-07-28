@@ -1,17 +1,17 @@
 <?php
 require("../../partials/routes.php");
 require_once("../../partials/check_login.php");
-require("../../../app/Controllers/FacturasController.php");
+require("../../../app/Controllers/VentasController.php");
 
 
-use App\Controllers\FacturasController;
+use App\Controllers\VentasController;
 use App\Controllers\UsuariosController;
 use App\Models\GeneralFunctions;
-use App\Models\Facturas;
+use App\Models\Ventas;
 use Carbon\Carbon;
 
 
-$nameModel = "Factura";
+$nameModel = "Venta";
 $nameForm = 'frmEdit'.$nameModel;
 $pluralModel = $nameModel.'s';
 $frmSession = $_SESSION[$nameForm]?? null;
@@ -75,24 +75,24 @@ $frmSession = $_SESSION[$nameForm]?? null;
                                 <p>
                                 <?php
 
-                                $DataFactura = FacturasController::searchForID(["id" => $_GET["id"]]);
-                                /* @var $DataFactura Facturas */
-                                if (!empty($DataFactura)) {
+                                $DataVenta = VentasController::searchForID(["id" => $_GET["id"]]);
+                                /* @var $DataVenta Ventas */
+                                if (!empty($DataVenta)) {
                                     ?>
                                     <!-- form start -->
                                     <div class="card-body">
                                         <form class="form-horizontal" enctype="multipart/form-data" method="post" id="<?= $nameForm ?>"
                                               name="<?= $nameForm ?>"
                                               action="../../../app/Controllers/MainController.php?controller=<?= $pluralModel ?>&action=edit">
-                                            <input id="id" name="id" value="<?= $DataFactura->getId(); ?>" hidden
+                                            <input id="id" name="id" value="<?= $DataVenta->getId(); ?>" hidden
                                                    required="required" type="text">
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="form-group row">
-                                                        <label for="Fecha" class="col-sm-2 col-form-label">Fecha</label>
+                                                        <label for="FechaVenta" class="col-sm-2 col-form-label">FechaVenta</label>
                                                         <div class="col-sm-10">
-                                                            <input required type="date" max="<?= Carbon::now()->format('Y-m-d')?>" class="col-sm-3 form-control" id="Fecha" name="Fecha"
-                                                                   value="<?= $DataFactura->getFecha()->toDateString()?>">
+                                                            <input required type="date" max="<?= Carbon::now()->format('Y-m-d')?>" class="col-sm-3 form-control" id="FechaVenta" name="FechaVenta"
+                                                                   value="<?= $DataVenta->getFechaVenta()->toDateString()?>">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -100,27 +100,10 @@ $frmSession = $_SESSION[$nameForm]?? null;
                                                         <div class="col-sm-10">
                                                             <select required id="MedioPago" name="MedioPago" class="custom-select">
                                                                 <option value="">Seleccione</option>
-                                                                <option <?= ( $DataFactura->getMedioPago() == "Datafono") ? "selected" : ""; ?> value="Datafono">Datafono</option>
-                                                                <option <?= ( $DataFactura->getMedioPago() == "Efectivo") ? "selected" : ""; ?> value="Efectivo">Efectivo</option>
-                                                                <option <?= ( $DataFactura->getMedioPago() == "Nequi") ? "selected" : ""; ?> value="Nequi">Nequi</option>
-                                                                <option <?= ( $DataFactura->getMedioPago() == "Ahorro a la mano") ? "selected" : ""; ?> value="Ahorro a la mano">Ahorro a la mano</option>
-                                                                <option <?= ( $DataFactura->getMedioPago() == "Daviplata") ? "selected" : ""; ?> value="Daviplata">Daviplata</option>
+                                                                <option <?= ( $DataVenta->getMedioPago() == "Efectivo") ? "selected" : ""; ?> value="Efectivo">Efectivo</option>
+                                                                <option <?= ( $DataVenta->getMedioPago() == "Nequi") ? "selected" : ""; ?> value="Nequi">Nequi</option>
+                                                                <option <?= ( $DataVenta->getMedioPago() == "Daviplata") ? "selected" : ""; ?> value="Daviplata">Daviplata</option>
                                                             </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <label for="Mesero_id" class="col-sm-2 col-form-label">Mesero</label>
-                                                        <div class="col-sm-10">
-                                                            <?= UsuariosController::selectUsuario(
-                                                                array(
-                                                                    'id' => 'Mesero_id',
-                                                                    'name' => 'Mesero_id',
-                                                                    'defaultValue' => $DataFactura->getMeseroId(),
-                                                                    'class' => 'form-control select2bs4 select2-info',
-                                                                    'where' => "estado = 'Activo' and rol = 'Mesero' or estado = 'Activo' and rol = 'Domiciliario'"
-                                                                )
-                                                            )
-                                                            ?>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -128,20 +111,24 @@ $frmSession = $_SESSION[$nameForm]?? null;
                                                         <div class="col-sm-10">
                                                             <select required name="Estado" id="Estado" class="custom-select">
                                                                 <option value="">Seleccione</option>
-                                                                <option <?= ( $DataFactura->getEstado() == "Pendiente") ? "selected" : ""; ?> value="Pendiente" >Pendiente</option>
-                                                                <option <?= ( $DataFactura->getEstado() == "Paga") ? "selected" : ""; ?> value="Paga" >Paga</option>
-                                                                <option <?= ( $DataFactura->getEstado() == "Cancelada") ? "selected" : ""; ?> value="Cancelada" >Cancelada</option>
+                                                                <option <?= ( $DataVenta->getEstado() == "Activo") ? "selected" : ""; ?> value="Activo" >Activo</option>
+                                                                <option <?= ( $DataVenta->getEstado() == "Inactivo") ? "selected" : ""; ?> value="Inactivo" >Inactivo</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label for="TipoPedido" class="col-sm-2 col-form-label">Tipo de pedido</label>
+                                                        <label for="Cliente_id" class="col-sm-2 col-form-label">Cliente</label>
                                                         <div class="col-sm-10">
-                                                            <select required name="TipoPedido" id="TipoPedido" class="custom-select">
-                                                                <option value="">Seleccione</option>
-                                                                <option <?= ( $DataFactura->getTipoPedido() == "Mesa") ? "selected" : ""; ?> value="Mesa" >Mesa</option>
-                                                                <option <?= ( $DataFactura->getTipoPedido() == "Domicilio") ? "selected" : ""; ?> value="Domicilio" >Domicilio</option>
-                                                            </select>
+                                                            <?= UsuariosController::selectUsuario(
+                                                                array(
+                                                                    'id' => 'Cliente_id',
+                                                                    'name' => 'Cliente_id',
+                                                                    'defaultValue' => $DataVenta->getClienteId(),
+                                                                    'class' => 'form-control select2bs4 select2-info',
+                                                                    'where' => "estado = 'Activo' and rol = 'Cliente' "
+                                                                )
+                                                            )
+                                                            ?>
                                                         </div>
                                                     </div>
                                                 </div>

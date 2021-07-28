@@ -1,13 +1,13 @@
 <?php
 require("../../partials/routes.php");
 require_once("../../partials/check_login.php");
-require("../../../app/Controllers/FacturasController.php");
+require("../../../app/Controllers/VentasController.php");
 
-use App\Controllers\FacturasController;
+use App\Controllers\VentasController;
 use App\Models\GeneralFunctions;
-use App\Models\Facturas;
+use App\Models\Ventas;
 
-$nameModel = "Factura";
+$nameModel = "Venta";
 $pluralModel = $nameModel . 's';
 $frmSession = $_SESSION['frm' . $pluralModel] ?? NULL;
 ?>
@@ -57,13 +57,13 @@ $frmSession = $_SESSION['frm' . $pluralModel] ?? NULL;
                         <!-- Horizontal Form -->
                         <div class="card card-green">
                             <?php if (!empty($_GET["id"]) && isset($_GET["id"])) {
-                                $DataFactura = FacturasController::searchForID(["id" => $_GET["id"]]);
-                                /* @var $DataFactura Facturas */
-                                if (!empty($DataFactura)) {
+                                $DataVenta = VentasController::searchForID(["id" => $_GET["id"]]);
+                                /* @var $DataVenta Ventas */
+                                if (!empty($DataVenta)) {
                                     ?>
                                     <div class="card-header">
                                         <h3 class="card-title"><i class="fas fa-info"></i> &nbsp; Ver Información
-                                            de la factura numero <?= $DataFactura->getNumero() ?></h3>
+                                            de la venta numero <?= $DataVenta->getNumero() ?></h3>
                                         <div class="card-tools">
                                             <button type="button" class="btn btn-tool" data-card-widget="maximize"><i
                                                         class="fas fa-expand"></i></button>
@@ -77,26 +77,22 @@ $frmSession = $_SESSION['frm' . $pluralModel] ?? NULL;
                                             <div class="col-sm-10">
                                                 <p>
                                                     <strong><i class="fas fa-list-ol mr-1"></i>&nbsp;Numero</strong>
-                                                        <p class="text-muted"><?= $DataFactura->getNumero() ?></p>
+                                                        <p class="text-muted"><?= $DataVenta->getNumero() ?></p>
                                                 <hr>
-                                                    <strong><i class="far fa-calendar-alt"></i>&nbsp;Fecha</strong>
-                                                        <p class="text-muted"><?= $DataFactura->getFecha()->format('Y-m-d') ?></p>
+                                                    <strong><i class="far fa-calendar-alt"></i>&nbsp;FechaVenta</strong>
+                                                        <p class="text-muted"><?= $DataVenta->getFechaVenta()->format('Y-m-d') ?></p>
                                                 <hr>
                                                     <strong><i class="far fa-credit-card"></i>&nbsp;Medio de pago</strong>
-                                                        <p class="text-muted"><?= $DataFactura->getMedioPago() ?></p>
-                                                <hr>
-                                                    <strong><i class="fas fa-male"></i>&nbsp;Mesero</strong>
-                                                        <p class="text-muted"><?= $DataFactura->getMesero()->getNombres() ?></p>
+                                                        <p class="text-muted"><?= $DataVenta->getMedioPago() ?></p>
                                                 <hr>
                                                     <strong><i class="fas fa-check"></i>&nbsp;Estado</strong>
-                                                        <p class="text-muted"><?= $DataFactura->getEstado() ?></p>
+                                                <p class="text-muted"><?= $DataVenta->getEstado() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-utensils"></i>&nbsp;Tipo pedido</strong>
-                                                        <p class="text-muted"><?= $DataFactura->getTipoPedido() ?></p>
-                                                </p>
+                                                    <strong><i class="fas fa-male"></i>&nbsp;Cliente</strong>
+                                                        <p class="text-muted"><?= $DataVenta->getCliente()->getNombres() ?></p>
                                                 <hr>
                                                     <strong><i class="fas fa-cash-register"></i>&nbsp;Total Factura</strong>
-                                                        <p class="text-muted"><?= $DataFactura->getTotal() ?></p>
+                                                        <p class="text-muted"><?= $DataVenta->getTotal() ?></p>
                                                 </p>
                                             </div>
                                         </div>
@@ -110,7 +106,7 @@ $frmSession = $_SESSION['frm' . $pluralModel] ?? NULL;
                                                 </a>
                                             </div>
                                             <div class="col-auto">
-                                                <a role="button" href="edit.php?id=<?= $DataFactura->getId(); ?>"
+                                                <a role="button" href="edit.php?id=<?= $DataVenta->getId(); ?>"
                                                    class="btn btn-primary float-right"
                                                    style="margin-right: 5px;">
                                                     <i class="fas fa-edit"></i> Editar <?= $nameModel ?>

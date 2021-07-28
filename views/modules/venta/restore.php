@@ -1,13 +1,13 @@
 <?php
-require_once("../../../app/Controllers/FacturasController.php");
+require_once("../../../app/Controllers/VentasController.php");
 require_once("../../partials/routes.php");
 require_once("../../partials/check_login.php");
 
-use App\Controllers\FacturasController;
+use App\Controllers\VentasController;
 use App\Models\GeneralFunctions;
-use App\Models\Facturas;
+use App\Models\Ventas;
 
-$nameModel = "Factura";
+$nameModel = "Venta";
 $pluralModel = $nameModel.'s';
 $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
 ?>
@@ -39,7 +39,7 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                         <h1>Papelera</h1>
                     </div>
                     <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
+                        <ol class="breadcrumb float-sm-right">producto
                             <li class="breadcrumb-item"><a href="<?= $baseURL; ?>/views/"><?= $_ENV['ALIASE_SITE'] ?></a></li>
                             <li class="breadcrumb-item active"><?= $pluralModel ?></li>
                         </ol>
@@ -85,34 +85,32 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Numero</th>
-                                                <th>Fecha de creación</th>
+                                                <th>Fecha de venta</th>
                                                 <th class="none">Medio de pago:</th>
-                                                <th>Mesero</th>
                                                 <th>Estado</th>
-                                                <th>Tipo de pedido</th>
+                                                <th>Cliente</th>
                                                 <th data-priority="1">Cambiar estado</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <?php
-                                            $arrFacturas = FacturasController::getAll();
-                                            if (!empty($arrFacturas))
-                                                /* @var $arrFacturas Facturas */
-                                                foreach ($arrFacturas as $factura) {
-                                                    if ($factura->getEstado() == 'Cancelada'){/*No va a mostrar las facuras que esten canceladas */
+                                            $arrVentas = VentasController::getAll();
+                                            if (!empty($arrVentas))
+                                                /* @var $arrVentas Ventas */
+                                                foreach ($arrVentas as $venta) {
+                                                    if ($venta->getEstado() == 'Cancelada'){/*No va a mostrar las ventas que esten canceladas */
                                                         ?>
                                                         <tr>
-                                                            <td><?= $factura->getId(); ?></td>
-                                                            <td><?= $factura->getNumero(); ?></td>
-                                                            <td><?= $factura->getFecha()->format('Y-m-d'); ?></td>
-                                                            <td><?= $factura->getMedioPago(); ?></td>
-                                                            <td><?= $factura->getMesero()->getNombres(); ?></td>
-                                                            <td><?= $factura->getEstado(); ?></td>
-                                                            <td><?= $factura->getTipoPedido(); ?></td>
+                                                            <td><?= $venta->getId(); ?></td>
+                                                            <td><?= $venta->getNumero(); ?></td>
+                                                            <td><?= $venta->getFechaVenta()->format('Y-m-d'); ?></td>
+                                                            <td><?= $venta->getMedioPago(); ?></td>
+                                                            <td><?= $venta->getEstado(); ?></td>
+                                                            <td><?= $venta->getCliente()->getNombres(); ?></td>
                                                             <td>
                                                                 <div style="text-align: center;">
-                                                                    <?php if ($factura->getEstado() == "Cancelada") { ?>
-                                                                        <a href="../../../app/Controllers/MainController.php?controller=<?= $pluralModel ?>&action=statusRestaurar&id=<?= $factura->getId(); ?>"
+                                                                    <?php if ($venta->getEstado() == "Cancelada") { ?>
+                                                                        <a href="../../../app/Controllers/MainController.php?controller=<?= $pluralModel ?>&action=statusRestaurar&id=<?= $venta->getId(); ?>"
                                                                         type="button" data-toggle="tooltip" title="Restaurar"
                                                                         class="btn docs-tooltip btn-success btn-xs"><i
                                                                                 class="fas fa-undo-alt"></i></a>
@@ -128,11 +126,10 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                             <tr>
                                                 <th>N°</th>
                                                 <th>Numero</th>
-                                                <th>Fecha de creación</th>
-                                                <th>Medio de pago</th>
-                                                <th>Mesero</th>
+                                                <th>Fecha de venta</th>
+                                                <th class="none">Medio de pago:</th>
                                                 <th>Estado</th>
-                                                <th>Tipo de pedido</th>
+                                                <th>Cliente</th>
                                                 <th>Cambiar estado</th>
                                             </tr>
                                             </tfoot>

@@ -2,6 +2,7 @@
 require("../../partials/routes.php");
 require_once("../../partials/check_login.php");
 
+use App\Controllers\UsuariosController;
 use App\Controllers\VentasController;
 use App\Models\GeneralFunctions;
 use Carbon\Carbon;
