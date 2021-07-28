@@ -49,6 +49,7 @@ class Usuarios extends AbstractDBConnection implements Model
      */
     public function __construct(array $Usuario =[])
     {
+        parent::__construct();
         $this->setId($Usuario['id'] ?? 0);
         $this->setNombres($Usuario['Nombres'] ?? '');
         $this->setApellidos($Usuario['Apellidos'] ?? '');
