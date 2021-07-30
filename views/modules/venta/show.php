@@ -91,7 +91,7 @@ $frmSession = $_SESSION['frm' . $pluralModel] ?? NULL;
                                                     <strong><i class="fas fa-male"></i>&nbsp;Cliente</strong>
                                                         <p class="text-muted"><?= $DataVenta->getCliente()->getNombres() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-cash-register"></i>&nbsp;Total Factura</strong>
+                                                    <strong><i class="fas fa-cash-register"></i>&nbsp;Total venta</strong>
                                                         <p class="text-muted"><?= $DataVenta->getTotal() ?></p>
                                                 </p>
                                             </div>

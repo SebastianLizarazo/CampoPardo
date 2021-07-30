@@ -111,8 +111,9 @@ $frmSession = $_SESSION[$nameForm]?? null;
                                                         <div class="col-sm-10">
                                                             <select required name="Estado" id="Estado" class="custom-select">
                                                                 <option value="">Seleccione</option>
-                                                                <option <?= ( $DataVenta->getEstado() == "Activo") ? "selected" : ""; ?> value="Activo" >Activo</option>
-                                                                <option <?= ( $DataVenta->getEstado() == "Inactivo") ? "selected" : ""; ?> value="Inactivo" >Inactivo</option>
+                                                                <option <?= ( $DataVenta->getEstado() == "Pendiente") ? "selected" : ""; ?> value="Pendiente" >Pendiente</option>
+                                                                <option <?= ( $DataVenta->getEstado() == "Paga") ? "selected" : ""; ?> value="Paga" >Paga</option>
+                                                                <option <?= ( $DataVenta->getEstado() == "Cancelada") ? "selected" : ""; ?> value="Cancelada" >Cancelada</option>
                                                             </select>
                                                         </div>
                                                     </div>

@@ -98,32 +98,32 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                             if (!empty($arrVentas))
                                             /* @var $arrVentas Ventas */
                                             foreach ($arrVentas as $venta) {
-                                                if ($venta->getEstado() != 'Inactivo'){/*No va a mostrar las facuras que esten canceladas */
+                                                if ($venta->getEstado() != 'Cancelada'){/*No va a mostrar las facuras que esten canceladas */
                                                     ?>
                                                     <tr>
                                                         <td><?= $venta->getId(); ?></td>
                                                         <td><?= $venta->getNumero(); ?></td>
                                                         <td><?= $venta->getFechaVenta()->format('Y-m-d'); ?></td>
                                                         <td><?= $venta->getMedioPago(); ?></td>
-                                                        <td><span class="badge badge-<?= $venta->getEstado() == "Inactivo" ? "success" : "primary" ?>">
+                                                        <td><span class="badge badge-<?= $venta->getEstado() == "Saldada" ? "success" : "primary" ?>">
                                                                 <?= $venta->getEstado() ?>
                                                         <td><?= $venta->getCliente()->getNombres() ?></td>
                                                             </span>
                                                         </td>
                                                         <td>
                                                             <div  style="text-align: center;">
-                                                                <?php if ($venta->getEstado() == "Activo") { ?>
-                                                                    <a href="../../../app/Controllers/MainController.php?controller=<?= $pluralModel ?>&action=statusInactivo&id=<?= $venta->getId(); ?>"
-                                                                       type="button" data-toggle="tooltip" title="Inactivo"
+                                                                <?php if ($venta->getEstado() == "Pendiente") { ?>
+                                                                    <a href="../../../app/Controllers/MainController.php?controller=<?= $pluralModel ?>&action=statusSaldada&id=<?= $venta->getId(); ?>"
+                                                                       type="button" data-toggle="tooltip" title="Saldada"
                                                                        class="btn docs-tooltip btn-success btn-xs"><i
                                                                                 class="far fa-check-circle"></i></a>
-                                                                <?php } elseif($venta->getEstado() == "Inactivo") { ?>
-                                                                    <a href="../../../app/Controllers/MainController.php?controller=<?= $pluralModel ?>&action=statusActivo&id=<?= $venta->getId(); ?>"
-                                                                       type="button" data-toggle="tooltip" title="Activo"
+                                                                <?php } elseif($venta->getEstado() == "Saldada") { ?>
+                                                                    <a href="../../../app/Controllers/MainController.php?controller=<?= $pluralModel ?>&action=statusPendiente&id=<?= $venta->getId(); ?>"
+                                                                       type="button" data-toggle="tooltip" title="Pendiente"
                                                                        class="btn docs-tooltip btn-primary btn-xs"><i
                                                                                 class="fa fa-times-circle"></i></a>
                                                                 <?php }else{ ?>
-                                                                    <a href="../../../app/Controllers/MainController.php?controller=<?= $pluralModel ?>&action=statusActivo&id=<?= $venta->getId(); ?>"
+                                                                    <a href="../../../app/Controllers/MainController.php?controller=<?= $pluralModel ?>&action=statusPendiente&id=<?= $venta->getId(); ?>"
                                                                        type="button" data-toggle="tooltip" title="Restaurar"
                                                                        class="btn docs-tooltip btn-success btn-xs"><i
                                                                                 class="fas fa-undo-alt"></i></a>

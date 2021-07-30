@@ -27,7 +27,6 @@ class Usuarios extends AbstractDBConnection implements Model
     private string $Estado;
     private int $Municipio_id;
 
-
     /* Seguridad de contraseña*/
     const HASH = PASSWORD_DEFAULT;
     const COST = 10;
@@ -61,7 +60,7 @@ class Usuarios extends AbstractDBConnection implements Model
         $this->setDireccion($Usuario['Direccion'] ?? '');
         $this->setRol($Usuario['Rol'] ?? '');
         $this->setEstado($Usuario['Estado'] ?? '');
-        $this->setMunicipioId($Usuario['Municipio_id'] ?? '');
+        $this->setMunicipioId($Usuario['Municipio_id'] ?? 0);
     }
 
 
@@ -281,8 +280,13 @@ class Usuarios extends AbstractDBConnection implements Model
     {
         $this->Municipio_id = $Municipio_id;
     }
-
-
+    public function getMunicipio(): ?Municipios
+    {
+        if (!empty($this->Municipio_id)) {
+            return Municipios::searchForId($this->Municipio_id) ?? new Municipios();
+        }
+        return null;
+    }
     protected function save(string $query): ?bool
     {
         $hashPassword = password_hash($this->Contrasena, self::HASH, ['cost' =>self::COST]);//Encripta la contraseña del ususario
