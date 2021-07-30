@@ -41,18 +41,33 @@ class Productos extends AbstractDBConnection implements Model
      */
     public function __construct(array $Producto = [])
     {
-        $this->id = $id;
-        $this->Nombre = $Nombre;
-        $this->Tamano = $Tamano;
-        $this->Clasificacion = $Clasificacion;
-        $this->Referencia = $Referencia;
-        $this->PrecioProduccion = $PrecioProduccion;
-        $this->PrecioVenta = $PrecioVenta;
-        $this->Presentacion = $Presentacion;
-        $this->Cantidad = $Cantidad;
-        $this->Descripcion = $Descripcion;
-        $this->Estado = $Estado;
-        $this->Proveedor_id = $Proveedor_id;
+        parent::__construct();
+        $this->setId($Producto['id']?? null);
+        $this->setNombre($Producto['Nombre']?? '');
+        $this->setTamano($Producto['Tamano']?? '');
+        $this->setClasificacion($Producto['Clasificacion']?? '');
+        $this->setReferencia($Producto['Referencia']?? '');
+        $this->setPrecioProduccion($Producto['PrecioProduccion']?? 0);
+        $this->setPrecioVenta($Producto['PrecioVenta']?? 0);
+        $this->setPresentacion($Producto['Presentacion']?? '');
+        $this->setCantidad($Producto['Cantidad']?? 0);
+        $this->setDescripcion($Producto['Descripcion']?? '');
+        $this->setEstado($Producto['Estado']?? '');
+        $this->setProveedorId($Producto['Estado']?? 0);
+    }
+
+    public static function productoRegistrado(mixed $Referencia, int $idExcluir = null): bool
+    {
+        $query =  "SELECT * FROM producto WHERE Referencia = '$Referencia' ".(empty($idExcluir) ? '' : "AND id != $idExcluir");
+        $prdTmp= Productos::search($query);
+        return (!empty($prdTmp)? true : false);
+    }
+
+    public function __destruct()
+    {
+        if ($this->isConnected()){
+            $this->Disconnect();
+        }
     }
 
     /**
@@ -247,6 +262,123 @@ class Productos extends AbstractDBConnection implements Model
         $this->Proveedor_id = $Proveedor_id;
     }
 
+    protected function save(string $query): ?bool
+    {
+        $arrData = [
+            ':id' => $this->getId(),
+            ':Nombre' => $this->getNombre(),
+            ':Tamano' => $this->getTamano(),
+            ':Clasificacion' => $this->getClasificacion(),
+            ':Referencia' => $this->getReferencia(),
+            ':PrecioProduccion' => $this->getPrecioProduccion(),
+            ':PrecioVenta' => $this->getPrecioVenta(),
+            ':Presentacion' => $this->getPresentacion(),
+            ':Cantidad' => $this->getCantidad(),
+            ':Descripcion' => $this->getDescripcion(),
+            ':Estado' => $this->getEstado(),
+            ':Proveedor_id' => $this->getProveedorId()
+        ];
+        $this->Connect();
+        $result = $this->insertRow($query, $arrData);
+        $this->Disconnect();
+        return $result;
+    }
 
+    public function insert(): ?bool
+    {
+        $query = "INSERT INTO producto VALUES (
+            :id, :Nombre, :Tamano, :Clasificacion, :Referencia, :PrecioProduccion, :PrecioVenta, 
+             :Presentacion, :Cantidad, :Descripcion, :Estado, :Proveedor_id)";
 
+        if ($this->save($query)){
+            $idProducto = $this->getLastId('producto');
+            $this->setId($idProducto);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function update(): ?bool
+    {
+        $query = "UPDATE producto SET
+            Nombre = :Nombre, Tamano = :Tamano, Clasificacion = :Clasificacion, Referencia = :Referencia, 
+            PrecioProduccion = :PrecioProduccion, PrecionVenta = :PrecioVenta, Presentacion = :Presentacion,
+            Cantidad = :Cantidad, Descripcion = :Descripcion, Estado = :Estado, Proveedor_id = :Proveedor_id
+            WHERE id = :id";
+        return $this->save($query);
+    }
+
+    public function deleted(): ?bool
+    {
+        $this->setEstado("Inactivo");
+        return $this->update();
+    }
+
+    public static function search($query): ?array
+    {
+        try {
+            $arrProductos = array();
+            $tmp = new Productos();
+
+            $tmp->Connect();
+            $getrows = $tmp->getRows($query);
+            $tmp->Disconnect();
+
+            if (!empty($getrows)) {
+                foreach ($getrows as $valor) {
+                    $Producto = new Productos($valor);
+                    array_push($arrProductos, $Producto);
+                    unset($Producto);
+                }
+                return $arrProductos;
+            }
+            return null;
+        } catch (\Exception $e) {
+            GeneralFunctions::logFile('Exception', $e);
+        }
+        return null;
+    }
+
+    public static function searchForId(int $id): ?Productos
+    {
+        try {
+            if ($id > 0) {
+                $tmpProducto = new Productos();
+                $tmpProducto->Connect();
+                $getrow = $tmpProducto->getRow("SELECT * FROM producto WHERE id = ?", array($id) );
+
+                $tmpProducto->Disconnect();
+                return ($getrow) ? new Productos($getrow) : null;
+            } else {
+                throw new \Exception('Id de producto Invalido');
+            }
+        } catch (\Exception $e) {
+            GeneralFunctions::logFile('Exception', $e);
+        }
+        return null;
+    }
+
+    static public function getAll(): ?array
+    {
+        return Productos::search("SELECT * FROM producto");
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->getId(),
+            'Nombre' => $this->getNombre(),
+            'Tamano' => $this->getTamano(),
+            'Clasificacion' => $this->getClasificacion(),
+            'Referencia' => $this->getReferencia(),
+            'PrecioProduccion' => $this->getPrecioProduccion(),
+            'PrecioVenta' => $this->getPrecioVenta(),
+            'Presentacion' => $this->getPresentacion(),
+            'Cantidad' => $this->getCantidad(),
+            'Descripcion' => $this->getDescripcion(),
+            'Estado' => $this->getEstado(),
+            'Proveedor_id' => $this->getProveedorId()
+        ];
+    }
 }
