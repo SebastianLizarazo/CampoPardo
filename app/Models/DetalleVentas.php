@@ -32,6 +32,14 @@ class DetalleVentas extends AbstractDBConnection implements Model
         $this->setCantidadProducto($DetalleVenta['CantidadProducto']?? 0);
     }
 
+    public static function detalleVentaRegistrada(mixed $Producto_id, mixed $Venta_id, int $idEscluir = null): bool
+    {
+        $query = "SELECT * FROM DetalleVenta WHERE Producto_id = '$Producto_id' and Venta_id = '$Venta_id' ".
+                  (empty($idEscluir) ? '' : "AND id != $idEscluir");
+        $dtvTmp = DetalleVentas::search($query);
+        return (!empty($dtvTmp)? true : false);
+    }
+
     public function __destruct()
     {
        if ($this->isConnected()){
