@@ -116,7 +116,7 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                                         <td><?= !empty($usuario->getDireccion()) ? $usuario->getDireccion() : 'No hay dirección disponible'; ?></td>
                                                         <td><?= $usuario->getRol(); ?></td>
                                                         <td><?= $usuario->getEstado(); ?></td>
-                                                        <td><?= $usuario->getMunicipios()->getNombre(); ?></td>
+                                                        <td><?= $usuario->getMunicipio()->getNombre(); ?></td>
                                                         <td>
                                                             <div  style="text-align: center;">
                                                             <a href="edit.php?id=<?= $usuario->getId(); ?>"

@@ -32,12 +32,12 @@ class Ventas extends AbstractDBConnection implements Model
     public function __construct($venta=[])
     {
         parent::__construct();
-        $this->setId( $factura['id']?? null);
-        $this->setNumero( $factura['Numero']?? 0);
-        $this->setFechaVenta(!empty($factura['FechaVenta'])? Carbon::parse($factura['FechaVenta']): new Carbon());
-        $this->setMedioPago( $factura['MedioPago']?? '');
-        $this->setEstado( $factura['Estado']?? '');
-        $this->setClienteId($factura['Cliente_id']?? 0);
+        $this->setId( $venta['id']?? null);
+        $this->setNumero( $venta['Numero']?? 0);
+        $this->setFechaVenta(!empty($venta['FechaVenta'])? Carbon::parse($venta['FechaVenta']): new Carbon());
+        $this->setMedioPago( $venta['MedioPago']?? '');
+        $this->setEstado( $venta['Estado']?? '');
+        $this->setClienteId($venta['Cliente_id']?? 0);
     }
 
     public static function ventaRegistrada(mixed $Numero, int $idExcluir = null): bool

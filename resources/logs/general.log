@@ -1,0 +1,400 @@
+[2021-07-30T13:54:15.554133+00:00] General.ERROR: Exception  
+[2021-07-30T13:54:15.555708+00:00] General.ERROR: Archivo: C:\laragon\www\CampoPardo\app\Models\AbstractDBConnection.php  
+[2021-07-30T13:54:15.555852+00:00] General.ERROR: Line: 128  
+[2021-07-30T13:54:15.555949+00:00] General.ERROR: Mensaje: SQLSTATE[01000]: Warning: 1265 Data truncated for column 'TipoDocumento' at row 1  
+[2021-07-30T13:54:15.556042+00:00] General.ERROR: Array
+(
+    [0] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\AbstractDBConnection.php
+            [line] => 128
+            [function] => execute
+            [class] => PDOStatement
+            [type] => ->
+            [args] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\Usuarios.php
+            [line] => 306
+            [function] => insertRow
+            [class] => App\Models\AbstractDBConnection
+            [type] => ->
+            [args] => Array
+                (
+                    [0] => INSERT INTO usuario VALUES (
+            :id,:Nombres,:Apellidos,:TipoDocumento,:NumeroDocumento,:Telefono,:Email,:Contrasena,:Direccion,:Rol,:Estado,:Municipio_id)
+                    [1] => Array
+                        (
+                            [:id] => 0
+                            [:Nombres] => David Felipe
+                            [:Apellidos] => Diaz Vargas
+                            [:TipoDocumento] => 1193088983
+                            [:NumeroDocumento] => 1193088983
+                            [:Telefono] => 3132307498
+                            [:Email] => campopardo@gmail.com
+                            [:Contrasena] => $2y$10$YekAGi7UFtZoAzgvAVHF1.sFk5j0wspZxcMmqbIVzf3TNmkDdSsya
+                            [:Direccion] => Av coyote 12-56
+                            [:Rol] => Administrador
+                            [:Estado] => Activo
+                            [:Municipio_id] => 1
+                        )
+
+                )
+
+        )
+
+    [2] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\Usuarios.php
+            [line] => 315
+            [function] => save
+            [class] => App\Models\Usuarios
+            [type] => ->
+            [args] => Array
+                (
+                    [0] => INSERT INTO usuario VALUES (
+            :id,:Nombres,:Apellidos,:TipoDocumento,:NumeroDocumento,:Telefono,:Email,:Contrasena,:Direccion,:Rol,:Estado,:Municipio_id)
+                )
+
+        )
+
+    [3] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\test\testUsuario.php
+            [line] => 61
+            [function] => insert
+            [class] => App\Models\Usuarios
+            [type] => ->
+            [args] => Array
+                (
+                )
+
+        )
+
+)
+  
+[2021-07-30T13:55:38.908462+00:00] General.ERROR: Exception  
+[2021-07-30T13:55:38.909480+00:00] General.ERROR: Archivo: C:\laragon\www\CampoPardo\app\Models\AbstractDBConnection.php  
+[2021-07-30T13:55:38.909690+00:00] General.ERROR: Line: 128  
+[2021-07-30T13:55:38.909873+00:00] General.ERROR: Mensaje: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdcampopardo`.`usuario`, CONSTRAINT `fk_Usuario_Municipio1` FOREIGN KEY (`Municipio_id`) REFERENCES `municipio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)  
+[2021-07-30T13:55:38.910070+00:00] General.ERROR: Array
+(
+    [0] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\AbstractDBConnection.php
+            [line] => 128
+            [function] => execute
+            [class] => PDOStatement
+            [type] => ->
+            [args] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\Usuarios.php
+            [line] => 306
+            [function] => insertRow
+            [class] => App\Models\AbstractDBConnection
+            [type] => ->
+            [args] => Array
+                (
+                    [0] => INSERT INTO usuario VALUES (
+            :id,:Nombres,:Apellidos,:TipoDocumento,:NumeroDocumento,:Telefono,:Email,:Contrasena,:Direccion,:Rol,:Estado,:Municipio_id)
+                    [1] => Array
+                        (
+                            [:id] => 0
+                            [:Nombres] => David Felipe
+                            [:Apellidos] => Diaz Vargas
+                            [:TipoDocumento] => CC
+                            [:NumeroDocumento] => 1245432350
+                            [:Telefono] => 3132307498
+                            [:Email] => campopardo@gmail.com
+                            [:Contrasena] => $2y$10$OUmXXzfVTrd5Ac4FRWfc4evSew.UZou5l3Ioe4ZyePZN1KpnPObYq
+                            [:Direccion] => Av coyote 12-56
+                            [:Rol] => Administrador
+                            [:Estado] => Activo
+                            [:Municipio_id] => 3
+                        )
+
+                )
+
+        )
+
+    [2] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\Usuarios.php
+            [line] => 315
+            [function] => save
+            [class] => App\Models\Usuarios
+            [type] => ->
+            [args] => Array
+                (
+                    [0] => INSERT INTO usuario VALUES (
+            :id,:Nombres,:Apellidos,:TipoDocumento,:NumeroDocumento,:Telefono,:Email,:Contrasena,:Direccion,:Rol,:Estado,:Municipio_id)
+                )
+
+        )
+
+    [3] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\test\testUsuario.php
+            [line] => 61
+            [function] => insert
+            [class] => App\Models\Usuarios
+            [type] => ->
+            [args] => Array
+                (
+                )
+
+        )
+
+)
+  
+[2021-07-30T14:59:34.975578+00:00] General.ERROR: Exception  
+[2021-07-30T14:59:34.977456+00:00] General.ERROR: Archivo: C:\laragon\www\CampoPardo\app\Models\AbstractDBConnection.php  
+[2021-07-30T14:59:34.977553+00:00] General.ERROR: Line: 128  
+[2021-07-30T14:59:34.977619+00:00] General.ERROR: Mensaje: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdcampopardo`.`usuario`, CONSTRAINT `fk_Usuario_Municipio1` FOREIGN KEY (`Municipio_id`) REFERENCES `municipio` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)  
+[2021-07-30T14:59:34.977690+00:00] General.ERROR: Array
+(
+    [0] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\AbstractDBConnection.php
+            [line] => 128
+            [function] => execute
+            [class] => PDOStatement
+            [type] => ->
+            [args] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\Usuarios.php
+            [line] => 310
+            [function] => insertRow
+            [class] => App\Models\AbstractDBConnection
+            [type] => ->
+            [args] => Array
+                (
+                    [0] => INSERT INTO usuario VALUES (
+            :id,:Nombres,:Apellidos,:TipoDocumento,:NumeroDocumento,:Telefono,:Email,:Contrasena,:Direccion,:Rol,:Estado,:Municipio_id)
+                    [1] => Array
+                        (
+                            [:id] => 0
+                            [:Nombres] => David Felipe
+                            [:Apellidos] => Diaz Vargas
+                            [:TipoDocumento] => CC
+                            [:NumeroDocumento] => 1245432350
+                            [:Telefono] => 3132307498
+                            [:Email] => campopardo@gmail.com
+                            [:Contrasena] => $2y$10$.KeFXotzjpAXkLYA01sgWeTPTywkiOuxSha.8buraRgzHcGwcdB3K
+                            [:Direccion] => Av coyote 12-56
+                            [:Rol] => Administrador
+                            [:Estado] => Activo
+                            [:Municipio_id] => 3
+                        )
+
+                )
+
+        )
+
+    [2] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\Usuarios.php
+            [line] => 319
+            [function] => save
+            [class] => App\Models\Usuarios
+            [type] => ->
+            [args] => Array
+                (
+                    [0] => INSERT INTO usuario VALUES (
+            :id,:Nombres,:Apellidos,:TipoDocumento,:NumeroDocumento,:Telefono,:Email,:Contrasena,:Direccion,:Rol,:Estado,:Municipio_id)
+                )
+
+        )
+
+    [3] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\test\testUsuario.php
+            [line] => 61
+            [function] => insert
+            [class] => App\Models\Usuarios
+            [type] => ->
+            [args] => Array
+                (
+                )
+
+        )
+
+)
+  
+[2021-07-30T15:01:35.528352+00:00] General.ERROR: Exception  
+[2021-07-30T15:01:35.529243+00:00] General.ERROR: Archivo: C:\laragon\www\CampoPardo\app\Models\AbstractDBConnection.php  
+[2021-07-30T15:01:35.529391+00:00] General.ERROR: Line: 128  
+[2021-07-30T15:01:35.529529+00:00] General.ERROR: Mensaje: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '3132307498' for key 'TblAdministradorTelefono_UNIQUE'  
+[2021-07-30T15:01:35.529669+00:00] General.ERROR: Array
+(
+    [0] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\AbstractDBConnection.php
+            [line] => 128
+            [function] => execute
+            [class] => PDOStatement
+            [type] => ->
+            [args] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\Usuarios.php
+            [line] => 310
+            [function] => insertRow
+            [class] => App\Models\AbstractDBConnection
+            [type] => ->
+            [args] => Array
+                (
+                    [0] => INSERT INTO usuario VALUES (
+            :id,:Nombres,:Apellidos,:TipoDocumento,:NumeroDocumento,:Telefono,:Email,:Contrasena,:Direccion,:Rol,:Estado,:Municipio_id)
+                    [1] => Array
+                        (
+                            [:id] => 0
+                            [:Nombres] => David Felipe
+                            [:Apellidos] => Diaz Vargas
+                            [:TipoDocumento] => CC
+                            [:NumeroDocumento] => 1245432350
+                            [:Telefono] => 3132307498
+                            [:Email] => campopardo@gmail.com
+                            [:Contrasena] => $2y$10$1uFFIcJ64TEH.bCJ4hcZ2u6vzAiauSZ9M34zhS2wHByQm2yuPlupa
+                            [:Direccion] => Av coyote 12-56
+                            [:Rol] => Administrador
+                            [:Estado] => Activo
+                            [:Municipio_id] => 5001
+                        )
+
+                )
+
+        )
+
+    [2] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\Usuarios.php
+            [line] => 319
+            [function] => save
+            [class] => App\Models\Usuarios
+            [type] => ->
+            [args] => Array
+                (
+                    [0] => INSERT INTO usuario VALUES (
+            :id,:Nombres,:Apellidos,:TipoDocumento,:NumeroDocumento,:Telefono,:Email,:Contrasena,:Direccion,:Rol,:Estado,:Municipio_id)
+                )
+
+        )
+
+    [3] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\test\testUsuario.php
+            [line] => 61
+            [function] => insert
+            [class] => App\Models\Usuarios
+            [type] => ->
+            [args] => Array
+                (
+                )
+
+        )
+
+)
+  
+[2021-07-30T15:27:25.564904+00:00] General.ERROR: Exception  
+[2021-07-30T15:27:25.567999+00:00] General.ERROR: Archivo: C:\laragon\www\CampoPardo\app\Models\AbstractDBConnection.php  
+[2021-07-30T15:27:25.568131+00:00] General.ERROR: Line: 128  
+[2021-07-30T15:27:25.568257+00:00] General.ERROR: Mensaje: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '3132307498' for key 'TblAdministradorTelefono_UNIQUE'  
+[2021-07-30T15:27:25.568347+00:00] General.ERROR: Array
+(
+    [0] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\AbstractDBConnection.php
+            [line] => 128
+            [function] => execute
+            [class] => PDOStatement
+            [type] => ->
+            [args] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\Usuarios.php
+            [line] => 310
+            [function] => insertRow
+            [class] => App\Models\AbstractDBConnection
+            [type] => ->
+            [args] => Array
+                (
+                    [0] => INSERT INTO usuario VALUES (
+            :id,:Nombres,:Apellidos,:TipoDocumento,:NumeroDocumento,:Telefono,:Email,:Contrasena,:Direccion,:Rol,:Estado,:Municipio_id)
+                    [1] => Array
+                        (
+                            [:id] => 0
+                            [:Nombres] => Simon
+                            [:Apellidos] => Tolomeo
+                            [:TipoDocumento] => CC
+                            [:NumeroDocumento] => 1009887888
+                            [:Telefono] => 3132307498
+                            [:Email] => lacteo@gmail.com
+                            [:Contrasena] => $2y$10$rMSCAUoqDEY6S0lEumSwnOPLMJFXBwuPA9DwGQATcjuR7s4MFKfG2
+                            [:Direccion] => cra 24 n 34
+                            [:Rol] => Administrador
+                            [:Estado] => Activo
+                            [:Municipio_id] => 5004
+                        )
+
+                )
+
+        )
+
+    [2] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\Usuarios.php
+            [line] => 319
+            [function] => save
+            [class] => App\Models\Usuarios
+            [type] => ->
+            [args] => Array
+                (
+                    [0] => INSERT INTO usuario VALUES (
+            :id,:Nombres,:Apellidos,:TipoDocumento,:NumeroDocumento,:Telefono,:Email,:Contrasena,:Direccion,:Rol,:Estado,:Municipio_id)
+                )
+
+        )
+
+    [3] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\test\testUsuario.php
+            [line] => 72
+            [function] => insert
+            [class] => App\Models\Usuarios
+            [type] => ->
+            [args] => Array
+                (
+                )
+
+        )
+
+)
+  

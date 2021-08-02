@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controllers;
-
 use App\Interfaces\Model;
 use App\Models\AbstractDBConnection;
 use App\Models\Ventas;
@@ -86,9 +85,9 @@ class VentasController
     static public function statusActivo(int $id)
     {
         try {
-            $ObjFactura = Ventas::searchForId($id);
-            $ObjFactura->setEstado("Activo");
-            if ($ObjFactura->update()){
+            $ObjVenta = Ventas::searchForId($id);
+            $ObjVenta->setEstado("Pendiente");
+            if ($ObjVenta->update()){
                 header("Location: ../../views/modules/venta/index.php");
             }else{
                 header("Location: ../../views/modules/venta/index.php?respuesta=error&mensaje=Error al guardar");
@@ -100,9 +99,9 @@ class VentasController
     static public function statusInactiva(int $id)
     {
         try {
-            $ObjFactura = Ventas::searchForId($id);
-            $ObjFactura->setEstado("Inactivo");
-            if ($ObjFactura->update()){
+            $ObjVenta = Ventas::searchForId($id);
+            $ObjVenta->setEstado("Saldada");
+            if ($ObjVenta->update()){
                 header("Location: ../../views/modules/venta/index.php");
             }else{
                 header("Location: ../../views/modules/venta/index.php?respuesta=error&mensaje=Error al guardar");
@@ -111,12 +110,12 @@ class VentasController
             GeneralFunctions::logFile('Exception',$e, 'error');
         }
     }
-    static public function statusRestaurar(int $id)//Restaura una factura ques esta en la papelera
+    static public function statusRestaurar(int $id)//Restaura una venta ques esta en la papelera
     {
         try {
-            $ObjFactura = Ventas::searchForId($id);
-            $ObjFactura->setEstado("Activo");
-            if ($ObjFactura->update()){
+            $ObjVenta = Ventas::searchForId($id);
+            $ObjVenta->setEstado("Pendiente");
+            if ($ObjVenta->update()){
                 header("Location: ../../views/modules/venta/restore.php?respuesta=success&mensaje=Venta restaurada");
             }else{
                 header("Location: ../../views/modules/venta/restore.php?respuesta=error&mensaje=Error al guardar");
@@ -151,7 +150,7 @@ class VentasController
         if (is_array($arrVentas) && count($arrVentas) > 0) {
             /* @var $arrVentas Ventas[] */
             foreach ($arrVentas as $venta)
-                if (!VentasController::facturaIsInArray($venta->getId(), $params['arrExcluir']))
+                if (!VentasController::ventaIsInArray($venta->getId(), $params['arrExcluir']))
                     $htmlSelect .= "<option " . (($venta != "") ? (($params['defaultValue'] == $venta->getId()) ? "selected" : "") : "") . " value='" . $venta->getId() . "'>"
                         . $venta->getNumero();
 
