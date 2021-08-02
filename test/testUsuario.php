@@ -13,7 +13,7 @@ $arrUsuario1=[
     'Email' => 'campopardo@gmail.com',
     'Direccion' => 'Av coyote 12-56',
     'Contrasena' => '123456789',
-    'Rol' => 'Administrador',
+    'Rol' => 'Proveedor',
     'Estado' => 'Activo',
     'Municipio_id' => 5001
 ];
@@ -57,19 +57,19 @@ $arrUsuario4=[
     'Empresa_id' => 1
 ];
 
-//$objectUsuario1= new Usuarios($arrUsuario1);
+$objectUsuario1= new Usuarios($arrUsuario1);
 //var_dump($objectUsuario1);
-//$objectUsuario1->insert();
+$objectUsuario1->insert();
 
 //$objectUsuario1->setCedula(1193099653);
 //$objectUsuario1->setApellidos('Sandoval Pirri');
 //var_dump($objectUsuario1);
 //$objectUsuario1->update();
 
-$objectUsuario2= new Usuarios($arrUsuario2);
+//$objectUsuario2= new Usuarios($arrUsuario2);
 //var_dump($objectUsuario2);
 
-$objectUsuario2->insert();
+//$objectUsuario2->insert();
 //$objectUsuario4= new Usuarios($arrUsuario4);
 //var_dump($objectUsuario1);
 //$objectUsuario4->insert();

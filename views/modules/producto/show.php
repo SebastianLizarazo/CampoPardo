@@ -83,58 +83,34 @@ $frmSession = $_SESSION['frm' . $pluralModel] ?? NULL;
                                                     <strong><i class="fas fa-search-plus"></i>&nbsp;Tamaño</strong>
                                                         <p class="text-muted"><?= $DataProducto->getTamano() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-weight-hanging"></i>&nbsp;Referencia tamaño</strong>
-                                                        <p class="text-muted"><?= $DataProducto->getReferenciaTamano() ?></p>
+                                                    <strong><i class="fas fa-weight-hanging"></i>&nbsp;Clasificación</strong>
+                                                        <p class="text-muted"><?= $DataProducto->getClasificacion() ?></p>
                                                 <hr>
                                                     <strong><i class="fas fa-file-csv"></i>&nbsp;Referencia</strong>
                                                         <p class="text-muted"><?= $DataProducto->getReferencia() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-dollar-sign"></i>&nbsp;Precio base</strong>
-                                                        <p class="text-muted"><?= $DataProducto->getPrecioBase() ?></p>
+                                                    <strong><i class="fas fa-dollar-sign"></i>&nbsp;Precio producción</strong>
+                                                        <p class="text-muted"><?= $DataProducto->getPrecioProduccion() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-dollar-sign"></i>&nbsp;Precio unidad trabajador</strong>
-                                                        <p class="text-muted"><?= $DataProducto->getPrecioUnidadTrabajador() ?></p>
+                                                    <strong><i class="fas fa-dollar-sign"></i>&nbsp;Precio venta</strong>
+                                                        <p class="text-muted"><?= $DataProducto->getPrecioVenta() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-dollar-sign"></i>&nbsp;Precio unidad venta</strong>
-                                                        <p class="text-muted"><?= $DataProducto->getPrecioUnidadVenta() ?></p>
+                                                    <strong><i class="fas fa-dollar-sign"></i>&nbsp;Presentación</strong>
+                                                        <p class="text-muted"><?= $DataProducto->getPresentacion() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-gifts"></i>&nbsp;Presentación producto</strong>
-                                                        <p class="text-muted"><?= $DataProducto->getPresentacionProducto() ?></p>
+                                                    <strong><i class="fas fa-gifts"></i>&nbsp;Cantidad</strong>
+                                                        <p class="text-muted"><?= $DataProducto->getCantidad() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-registered"></i>&nbsp;Marca</strong>
-                                                        <p class="text-muted"><?= $DataProducto->getMarca()->getNombre() ?></p>
+                                                    <strong><i class="fas fa-registered"></i>&nbsp;Descripción</strong>
+                                                        <p class="text-muted"><?= $DataProducto->getDescripcion() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-sort-amount-up"></i>&nbsp;Cantidad</strong>
-                                                        <p class="text-muted"><?= $DataProducto->getCantidadProducto() ?></p>
-                                                <hr>
-                                                    <strong><i class="fas fa-cubes"></i>&nbsp;Sub categoria</strong>
-                                                        <p class="text-muted"><?= $DataProducto->getSubcategoria()->getNombre() ?></p>
-                                                <hr>
-                                                    <strong><i class="fas fa-check"></i>&nbsp;Estado</strong>
+                                                    <strong><i class="fas fa-sort-amount-up"></i>&nbsp;Estado</strong>
                                                         <p class="text-muted"><?= $DataProducto->getEstado() ?></p>
-                                                </p>
+                                                <hr>
+                                                    <strong><i class="fas fa-cubes"></i>&nbsp;Proveedor</strong>
+                                                        <p class="text-muted"><?= $DataProducto->getProveedor()->getNombres().' '.$DataProducto->getProveedor()->getApellidos() ?>
+                                                    </p>
                                             </div>
-                                            <div class="col-sm-2">
-                                                <div class="row info-box">
-                                                    <div class="col-12">
-                                                        <h4>Imagen Producto</h4>
-                                                    </div>
-                                                    <div class="col-12">
-                                                            <?php if(!empty($DataProducto->getImagenProductos())){
-                                                                    $arrImg = $DataProducto->getImagenProductos();
-                                                                    /* @var  $arrImg Imagenes  */
-                                                                    foreach ($arrImg as $img){
-                                                                         if(!empty($img->getRuta()) && $img->getEstado() == 'Activo'){  ?>
-                                                                             <img class='img-thumbnail rounded' src='../../public/uploadFiles/photos/productos/<?= $img->getRuta(); ?>' alt="Imagen Producto">
-                                                                         <?php }else{ ?>
-                                                                             <span>No hay imagen disponible</span>
-                                                                         <?php }
-                                                                    }
-                                                            }else{ ?>
-                                                                    <span>No hay imagen disponible</span>
-                                                            <?php } ?>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

@@ -22,7 +22,7 @@ class ProductosController
         $this->dataProducto ['PrecioVenta'] = $_FORM['PrecioVenta']?? null;
         $this->dataProducto ['Presentacion'] = $_FORM['Presentacion']?? null;
         $this->dataProducto ['Cantidad'] = $_FORM['Cantidad']?? null;
-        $this->dataProducto ['Descripcion'] = $_FORM['Descripcion']?? null;
+        $this->dataProducto ['Descripcion'] = (!empty($_FORM['Descripcion']))? $_FORM['Descripcion'] : 'Sin descripción';
         $this->dataProducto ['Estado'] = $_FORM['Estado']?? 'Activo';
         $this->dataProducto ['Proveedor_id'] = $_FORM['Proveedor_id']?? null;
     }

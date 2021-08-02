@@ -44,16 +44,16 @@ class Productos extends AbstractDBConnection implements Model
         parent::__construct();
         $this->setId($Producto['id']?? null);
         $this->setNombre($Producto['Nombre']?? '');
-        $this->setTamano($Producto['Tamano']?? '');
+        $this->setTamano($Producto['Tamano']?? 0);
         $this->setClasificacion($Producto['Clasificacion']?? '');
         $this->setReferencia($Producto['Referencia']?? '');
         $this->setPrecioProduccion($Producto['PrecioProduccion']?? 0);
         $this->setPrecioVenta($Producto['PrecioVenta']?? 0);
         $this->setPresentacion($Producto['Presentacion']?? '');
         $this->setCantidad($Producto['Cantidad']?? 0);
-        $this->setDescripcion($Producto['Descripcion']?? '');
+        $this->setDescripcion($Producto['Descripcion']?? 'Sin descripción');
         $this->setEstado($Producto['Estado']?? '');
-        $this->setProveedorId($Producto['Estado']?? 0);
+        $this->setProveedorId($Producto['Proveedor_id']?? 0);
     }
 
     public static function productoRegistrado(mixed $Referencia, int $idExcluir = null): bool
@@ -260,6 +260,13 @@ class Productos extends AbstractDBConnection implements Model
     public function setProveedorId(int $Proveedor_id): void
     {
         $this->Proveedor_id = $Proveedor_id;
+    }
+    public function getProveedor():?Usuarios
+    {
+        if (!empty($this->Proveedor_id)){
+            return Usuarios::searchForId($this->Proveedor_id)?? new Usuarios();
+        }
+        return null;
     }
 
     protected function save(string $query): ?bool

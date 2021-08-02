@@ -85,19 +85,17 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                             <thead>
                                             <tr>
                                                 <th>N°</th>
-                                                <th>Imagen</th>
                                                 <th>Nombre</th>
                                                 <th>Tamaño</th>
-                                                <th>Referencia tamaño</th>
-                                                <th class="none">Referencia:</th>
-                                                <th class="none">Precio base:</th>
-                                                <th class="none">Precio trabajador:</th>
+                                                <th>Clasificación</th>
+                                                <th>Referencia</th>
+                                                <th>Precio producción</th>
                                                 <th>Precio venta</th>
                                                 <th class="none">Presentación:</th>
-                                                <th class="none">Marca:</th>
-                                                <th class="none">Cantidad</th>
-                                                <th class="none">Sub categoria:</th>
-                                                <th>Estado</th>
+                                                <th>Cantidad</th>
+                                                <th class="none">Descripción:</th>
+                                                <th class="none">Estado:</th>
+                                                <th class="none">Proveedor:</th>
                                                 <th data-priority="1">Restaurar</th>
                                             </tr>
                                             </thead>
@@ -111,35 +109,17 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                                         ?>
                                                         <tr>
                                                             <td><?= $producto->getId(); ?></td>
-                                                            <td>
-                                                                <?php if(!empty($producto->getImagenProductos())){
-                                                                    $arrImg = $producto->getImagenProductos();
-                                                                    /* @var  $arrImg Imagenes  */
-                                                                    foreach ($arrImg as $img){
-                                                                        if(!empty($img->getRuta()) && $img->getEstado() == 'Activo'){ ?>
-                                                                            <span class="badge badge-info" data-toggle="tooltip" data-html="true"
-                                                                                  title="<img class='img-thumbnail' src='../../public/uploadFiles/photos/productos/<?= $img->getRuta(); ?>'>">Imagen
-                                                                        </span>
-                                                                        <?php }else{ ?>
-                                                                            <span>No hay imagen disponible</span>
-                                                                        <?php }
-                                                                    }
-                                                                }else{ ?>
-                                                                    <span>No hay imagen disponible</span>
-                                                                <?php } ?>
-                                                            </td>
                                                             <td><?= $producto->getNombre(); ?></td>
                                                             <td><?= $producto->getTamano(); ?></td>
-                                                            <td><?= $producto->getReferenciaTamano(); ?></td>
+                                                            <td><?= $producto->getClasificacion(); ?></td>
                                                             <td><?= $producto->getReferencia(); ?></td>
-                                                            <td><?= $producto->getPrecioBase(); ?></td>
-                                                            <td><?= $producto->getPrecioUnidadTrabajador(); ?></td>
-                                                            <td><?= $producto->getPrecioUnidadVenta(); ?></td>
-                                                            <td><?= $producto->getPresentacionProducto(); ?></td>
-                                                            <td><?= $producto->getMarca()->getNombre(); ?></td>
-                                                            <td><?= $producto->getCantidadProducto(); ?></td>
-                                                            <td><?= $producto->getSubcategoria()->getNombre(); ?></td>
+                                                            <td><?= $producto->getPrecioProduccion(); ?></td>
+                                                            <td><?= $producto->getPrecioVenta(); ?></td>
+                                                            <td><?= $producto->getPresentacion(); ?></td>
+                                                            <td><?= $producto->getCantidad(); ?></td>
+                                                            <td><?= (!empty($producto->getDescripcion())) ? $producto->getDescripcion() : 'No hay descripción'; ?></td>
                                                             <td><?= $producto->getEstado(); ?></td>
+                                                            <td><?= $producto->getProveedor()->getNombres(); ?></td>
                                                             <td>
                                                                 <div style="text-align: center;">
                                                                         <a href="../../../app/Controllers/MainController.php?controller=<?= $pluralModel ?>&action=restaurar&id=<?= $producto->getId(); ?>"
@@ -156,19 +136,17 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                             <tfoot>
                                             <tr>
                                                 <th>N°</th>
-                                                <th>Imagen</th>
                                                 <th>Nombre</th>
                                                 <th>Tamaño</th>
-                                                <th>Referencia tamaño</th>
+                                                <th>Clasificación</th>
                                                 <th>Referencia</th>
-                                                <th>Precio base</th>
-                                                <th>Precio unidad trabajador</th>
-                                                <th>Precio unidad venta</th>
+                                                <th>Precio producción</th>
+                                                <th>Precio venta</th>
                                                 <th>Presentación</th>
-                                                <th>Marca</th>
                                                 <th>Cantidad</th>
-                                                <th>Sub categoria</th>
+                                                <th>Descripción</th>
                                                 <th>Estado</th>
+                                                <th>Proveedor</th>
                                                 <th>Restaurar</th>
                                             </tr>
                                             </tfoot>
