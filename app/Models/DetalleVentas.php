@@ -28,7 +28,7 @@ class DetalleVentas extends AbstractDBConnection implements Model
         parent::__construct();
         $this->setId($DetalleVenta['id']?? 0);
         $this->setProductoId($DetalleVenta['Producto_id']?? 0);
-        $this->setVentaId($DetalleVenta['Venta_id']);
+        $this->setVentaId($DetalleVenta['Venta_id']?? 0);
         $this->setCantidadProducto($DetalleVenta['CantidadProducto']?? 0);
     }
 
@@ -109,6 +109,24 @@ class DetalleVentas extends AbstractDBConnection implements Model
     public function setCantidadProducto(int $CantidadProducto): void
     {
         $this->CantidadProducto = $CantidadProducto;
+    }
+
+    public function getVenta():?Ventas
+    {
+        if (!empty($this->Venta_id))
+        {
+            return Ventas::searchForId($this->Venta_id)?? new Ventas();
+        }
+        return null;
+    }
+
+    public function getProducto(): ?Productos
+    {
+        if (!empty($this->Producto_id))
+        {
+            return Productos::searchForId($this->Producto_id)?? new Productos();
+        }
+        return null;
     }
 
     protected function save(string $query): ?bool
