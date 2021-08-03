@@ -558,3 +558,103 @@
 
 )
   
+[2021-08-03T01:33:41.075150+00:00] General.ERROR: Exception  
+[2021-08-03T01:33:41.077378+00:00] General.ERROR: Archivo: C:\laragon\www\CampoPardo\app\Models\AbstractDBConnection.php  
+[2021-08-03T01:33:41.077497+00:00] General.ERROR: Line: 128  
+[2021-08-03T01:33:41.077579+00:00] General.ERROR: Mensaje: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'PrecionVenta' in 'field list'  
+[2021-08-03T01:33:41.077664+00:00] General.ERROR: Array
+(
+    [0] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\AbstractDBConnection.php
+            [line] => 128
+            [function] => execute
+            [class] => PDOStatement
+            [type] => ->
+            [args] => Array
+                (
+                )
+
+        )
+
+    [1] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\Productos.php
+            [line] => 289
+            [function] => insertRow
+            [class] => App\Models\AbstractDBConnection
+            [type] => ->
+            [args] => Array
+                (
+                    [0] => UPDATE producto SET
+            Nombre = :Nombre, Tamano = :Tamano, Clasificacion = :Clasificacion, Referencia = :Referencia, 
+            PrecioProduccion = :PrecioProduccion, PrecionVenta = :PrecioVenta, Presentacion = :Presentacion,
+            Cantidad = :Cantidad, Descripcion = :Descripcion, Estado = :Estado, Proveedor_id = :Proveedor_id
+            WHERE id = :id
+                    [1] => Array
+                        (
+                            [:id] => 3
+                            [:Nombre] => Kumis
+                            [:Tamano] => 22
+                            [:Clasificacion] => ml
+                            [:Referencia] => 003
+                            [:PrecioProduccion] => 231231
+                            [:PrecioVenta] => 231231
+                            [:Presentacion] => Envase vidrio
+                            [:Cantidad] => 22
+                            [:Descripcion] =>                                                                                                                     
+                            [:Estado] => Inactivo
+                            [:Proveedor_id] => 2
+                        )
+
+                )
+
+        )
+
+    [2] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Models\Productos.php
+            [line] => 316
+            [function] => save
+            [class] => App\Models\Productos
+            [type] => ->
+            [args] => Array
+                (
+                    [0] => UPDATE producto SET
+            Nombre = :Nombre, Tamano = :Tamano, Clasificacion = :Clasificacion, Referencia = :Referencia, 
+            PrecioProduccion = :PrecioProduccion, PrecionVenta = :PrecioVenta, Presentacion = :Presentacion,
+            Cantidad = :Cantidad, Descripcion = :Descripcion, Estado = :Estado, Proveedor_id = :Proveedor_id
+            WHERE id = :id
+                )
+
+        )
+
+    [3] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Controllers\ProductosController.php
+            [line] => 113
+            [function] => update
+            [class] => App\Models\Productos
+            [type] => ->
+            [args] => Array
+                (
+                )
+
+        )
+
+    [4] => Array
+        (
+            [file] => C:\laragon\www\CampoPardo\app\Controllers\MainController.php
+            [line] => 24
+            [function] => inactivate
+            [class] => App\Controllers\ProductosController
+            [type] => ::
+            [args] => Array
+                (
+                    [0] => 3
+                )
+
+        )
+
+)
+  

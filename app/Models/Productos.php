@@ -310,7 +310,7 @@ class Productos extends AbstractDBConnection implements Model
     {
         $query = "UPDATE producto SET
             Nombre = :Nombre, Tamano = :Tamano, Clasificacion = :Clasificacion, Referencia = :Referencia, 
-            PrecioProduccion = :PrecioProduccion, PrecionVenta = :PrecioVenta, Presentacion = :Presentacion,
+            PrecioProduccion = :PrecioProduccion, PrecioVenta = :PrecioVenta, Presentacion = :Presentacion,
             Cantidad = :Cantidad, Descripcion = :Descripcion, Estado = :Estado, Proveedor_id = :Proveedor_id
             WHERE id = :id";
         return $this->save($query);
