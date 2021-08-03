@@ -41,7 +41,7 @@ class MunicipiosController
         return null;
     }
 
-    static public function selectMunicipios(array $params = [])
+    static public function selectMunicipio (array $params = [])
     {
         $params['isMultiple'] = $params['isMultiple'] ?? false;
         $params['isRequired'] = $params['isRequired'] ?? true;

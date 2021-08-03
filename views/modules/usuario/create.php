@@ -88,6 +88,7 @@ $frmSession = $_SESSION[$nameForm]?? NULL; //Nombre del formulario (frmUsuarios)
                                                    placeholder="Ingrese los apellidos del usuario" value="<?= $frmSession['Apellidos'] ?? '' ?>">
                                         </div>
                                     </div>
+                                    <div class="form-group row">
                                     <label for="TipoDocumento" class="col-sm-2 col-form-label">TipoDocumento</label>
                                     <div class="col-sm-10">
                                         <select required id="TipoDocumento" name="TipoDocumento" class="custom-select">
@@ -95,6 +96,7 @@ $frmSession = $_SESSION[$nameForm]?? NULL; //Nombre del formulario (frmUsuarios)
                                             <option <?= ( !empty($frmSession['TipoDocumento']) && $frmSession['TipoDocumento'] == "CC") ? "selected" : ""; ?> value="CC">CC</option>
                                             <option <?= ( !empty($frmSession['TipoDocumento']) && $frmSession['TipoDocumento'] == "TI") ? "selected" : ""; ?> value="TI">TI</option>
                                         </select>
+                                    </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="NumeroDocumento" class="col-sm-2 col-form-label">NumeroDocumento</label>

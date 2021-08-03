@@ -84,7 +84,7 @@ $frmSession = $_SESSION[$nameForm] ?? null;
                                               action="../../../app/Controllers/MainController.php?controller=<?= $pluralModel ?>&action=edit">
                                             <input id="id" name="id" value="<?= $DataUsuario->getId(); ?>" hidden
                                                    required="required" type="text">
-                                            <div class="row">
+                                            <div class="col-sm-12">
                                                     <div class="form-group row">
                                                         <label for="Nombres" class="col-sm-2 col-form-label">Nombres</label>
                                                         <div class="col-sm-10">
@@ -101,25 +101,24 @@ $frmSession = $_SESSION[$nameForm] ?? null;
                                                                    placeholder="Ingrese los apellidos del usuario">
                                                         </div>
                                                     </div>
-                                                <div class="form-group row">
-                                                    <label for="TipoDocumento" class="col-sm-2 col-form-label">TipoDocumento</label>
-                                                    <div class="col-sm-10">
-                                                        <select required id="TipoDocumento" name="TipoDocumento" class="custom-select">
-                                                            <option value="">Seleccione</option>
-                                                            <option <?= ( $DataUsuario->getRol()  == "CC") ? "selected" : ""; ?> value="CC">CC</option>
-                                                            <option <?= ( $DataUsuario->getRol() == "TI") ? "selected" : ""; ?> value="TI">TI</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                    <div class="col-sm-12">
-                                                        <div class="form-group row">
-                                                            <label for="NumeroDocumento" class="col-sm-2 col-form-label">NumeroDocumento</label>
-                                                            <div class="col-sm-10">
-                                                                <input required type="number" min="1000000000" max="9999999999" class="form-control" id="NumeroDocumento"
-                                                                       name="NumeroDocumento" value="<?= $DataUsuario->getNumeroDocumento(); ?>"
-                                                                       placeholder="Ingrese el numero de documento del usuario">
-                                                            </div>
+                                                    <div class="form-group row">
+                                                        <label for="TipoDocumento" class="col-sm-2 col-form-label">TipoDocumento</label>
+                                                        <div class="col-sm-10">
+                                                            <select required id="TipoDocumento" name="TipoDocumento" class="custom-select">
+                                                                <option value="">Seleccione</option>
+                                                                <option <?= ( $DataUsuario->getRol()  == "CC") ? "selected" : ""; ?> value="CC">CC</option>
+                                                                <option <?= ( $DataUsuario->getRol() == "TI") ? "selected" : ""; ?> value="TI">TI</option>
+                                                            </select>
                                                         </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="NumeroDocumento" class="col-sm-2 col-form-label">NumeroDocumento</label>
+                                                        <div class="col-sm-10">
+                                                            <input required type="number" min="1000000000" max="9999999999" class="form-control" id="NumeroDocumento"
+                                                                   name="NumeroDocumento" value="<?= $DataUsuario->getNumeroDocumento(); ?>"
+                                                                   placeholder="Ingrese el numero de documento del usuario">
+                                                        </div>
+                                                    </div>
                                                     <div class="form-group row">
                                                         <label for="Telefono" class="col-sm-2 col-form-label">Telefono</label>
                                                         <div class="col-sm-10">
@@ -128,23 +127,22 @@ $frmSession = $_SESSION[$nameForm] ?? null;
                                                                    placeholder="Ingrese el telefono del usuario">
                                                         </div>
                                                     </div>
-                                                        <div class="form-group row">
-                                                            <label for="Email" class="col-sm-2 col-form-label">Email</label>
-                                                            <div class="col-sm-10">
-                                                                <input required type="email" class="form-control" id="Email"
-                                                                       name="Email" value="<?= $DataUsuario->getEmail(); ?>"
-                                                                       placeholder="Ingrese el email del usuario">
-                                                            </div>
+                                                    <div class="form-group row">
+                                                        <label for="Email" class="col-sm-2 col-form-label">Email</label>
+                                                        <div class="col-sm-10">
+                                                            <input required type="email" class="form-control" id="Email"
+                                                                   name="Email" value="<?= $DataUsuario->getEmail(); ?>"
+                                                                   placeholder="Ingrese el email del usuario">
                                                         </div>
-                                                        <div class="form-group row">
-                                                            <label for="Contrasena" class="col-sm-2 col-form-label">Contraseña</label>
-                                                            <div class="col-sm-10">
-                                                                <input required type="password" minlength="8" class="form-control" id="Contrasena"
-                                                                       name="Contrasena"
-                                                                       placeholder="Ingrese la nueva contraseña del usuario">
-                                                            </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="Contrasena" class="col-sm-2 col-form-label">Contraseña</label>
+                                                        <div class="col-sm-10">
+                                                            <input required type="password" minlength="8" class="form-control" id="Contrasena"
+                                                                   name="Contrasena"
+                                                                   placeholder="Ingrese la nueva contraseña del usuario">
                                                         </div>
-
+                                                    </div>
                                                     <div class="form-group row">
                                                         <label for="Direccion" class="col-sm-2 col-form-label">Dirección</label>
                                                         <div class="col-sm-10">

@@ -82,7 +82,7 @@ $frmSession = $_SESSION[$nameForm] ?? NULL; //Nombre del formulario (frmUsuarios
                                                                 'name' => 'Venta_id',
                                                                 'defaultValue' => (!empty($frmSession['Venta_id'])) ? $frmSession['Venta_id'] : '',
                                                                 'class' => 'form-control select2bs4 select2-info',
-                                                                'where' => "estado = 'Disponible'"
+                                                                'where' => "estado = 'Pendiente'"
                                                             )
                                                         )
                                                         ?>
