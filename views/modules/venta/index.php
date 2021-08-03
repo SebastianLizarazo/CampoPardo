@@ -112,6 +112,14 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                                         </td>
                                                         <td>
                                                             <div  style="text-align: center;">
+                                                                    <a href="../detalle_venta/index.php?idVenta=<?= $venta->getId(); ?>"
+                                                                        type="button" data-toggle="tooltip" title="Gestionar Venta"
+                                                                        class="btn docs-tooltip btn-success btn-xs"><i
+                                                                                    class="fa fa-edit"></i></a>
+                                                                    <a href="../detalle_venta/create.php?idVenta=<?= $venta->getId(); ?>"
+                                                                        type="button" data-toggle="tooltip" title="Agregar Producto"
+                                                                        class="btn docs-tooltip btn-bitbucket btn-xs"><i
+                                                                                    class="fa fa-plus-square"></i></a>
                                                                 <?php if ($venta->getEstado() == "Pendiente") { ?>
                                                                     <a href="../../../app/Controllers/MainController.php?controller=<?= $pluralModel ?>&action=statusSaldada&id=<?= $venta->getId(); ?>"
                                                                        type="button" data-toggle="tooltip" title="Saldada"

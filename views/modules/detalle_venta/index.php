@@ -92,7 +92,11 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                             </thead>
                                             <tbody>
                                             <?php
-                                            $arrDetalleV = DetalleVentasController::getAll();
+                                            if (!empty($_GET['idVenta'])){
+                                                $arrDetalleV = DetalleVentas::search('SELECT * FROM detalleventa WHERE Venta_id = '.$_GET['idVenta']);
+                                            }else {
+                                                $arrDetalleV = DetalleVentasController::getAll();
+                                            }
                                             if (!empty($arrDetalleV))
                                             /* @var $arrDetalleV DetalleVentas */
                                             foreach ($arrDetalleV as $DetalleV) {

@@ -80,7 +80,7 @@ $frmSession = $_SESSION[$nameForm] ?? NULL; //Nombre del formulario (frmUsuarios
                                                         <?= VentasController::selectVenta(array (
                                                                 'id' => 'Venta_id',
                                                                 'name' => 'Venta_id',
-                                                                'defaultValue' => (!empty($frmSession['Venta_id'])) ? $frmSession['Venta_id'] : '',
+                                                                'defaultValue' => (!empty($_GET['idVenta'])) ? $_GET['idVenta'] : ($frmSession['Venta_id'] ?? ''),
                                                                 'class' => 'form-control select2bs4 select2-info',
                                                                 'where' => "estado = 'Pendiente'"
                                                             )
