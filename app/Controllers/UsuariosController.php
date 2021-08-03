@@ -125,8 +125,8 @@ class UsuariosController
         //Parametros de Configuracion
         $params['isMultiple'] = $params['isMultiple'] ?? false;
         $params['isRequired'] = $params['isRequired'] ?? true;
-        $params['id'] = $params['id'] ?? "usuario_id";
-        $params['name'] = $params['name'] ?? "usuario_id";
+        $params['id'] = $params['id'] ?? "Usuario_id";
+        $params['name'] = $params['name'] ?? "Usuario_id";
         $params['defaultValue'] = $params['defaultValue'] ?? "";
         $params['class'] = $params['class'] ?? "form-control";
         $params['where'] = $params['where'] ?? "";

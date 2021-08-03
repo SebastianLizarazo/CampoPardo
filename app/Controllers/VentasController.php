@@ -82,7 +82,7 @@ class VentasController
         }
         return null;
     }
-    static public function statusActivo(int $id)
+    static public function statusPendiente(int $id)
     {
         try {
             $ObjVenta = Ventas::searchForId($id);
@@ -96,13 +96,27 @@ class VentasController
             GeneralFunctions::logFile('Exception',$e, 'error');
         }
     }
-    static public function statusInactiva(int $id)
+    static public function statusSaldada(int $id)
     {
         try {
             $ObjVenta = Ventas::searchForId($id);
             $ObjVenta->setEstado("Saldada");
             if ($ObjVenta->update()){
                 header("Location: ../../views/modules/venta/index.php");
+            }else{
+                header("Location: ../../views/modules/venta/index.php?respuesta=error&mensaje=Error al guardar");
+            }
+        }catch (\Exception $e){
+            GeneralFunctions::logFile('Exception',$e, 'error');
+        }
+    }
+    static public function statusCancelada(int $id)
+    {
+        try {
+            $ObjVenta = Ventas::searchForId($id);
+            $ObjVenta->setEstado("Cancelada");
+            if ($ObjVenta->update()){
+                header("Location: ../../views/modules/venta/index.php?respuesta=success&mensaje=Venta cancelada");
             }else{
                 header("Location: ../../views/modules/venta/index.php?respuesta=error&mensaje=Error al guardar");
             }
