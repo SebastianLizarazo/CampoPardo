@@ -20,6 +20,9 @@ class Ventas extends AbstractDBConnection implements Model
     private  string $Estado;
     private  int $Cliente_id;
 
+    /* Relaciones*/
+    private ?array $DetalleVenta;
+
     /**
      * Ventas constructor.
      * @param int|null $id
@@ -148,6 +151,13 @@ class Ventas extends AbstractDBConnection implements Model
     public function setClienteId(int $Cliente_id): void
     {
         $this->Cliente_id = $Cliente_id;
+    }
+    public function getCliente(): ?Usuarios
+    {
+        if (!empty($this->Cliente_id)){
+            return Usuarios::searchForId($this->Cliente_id)?? new Usuarios();
+        }
+        return null;
     }
 
     public function getDetalleVentasVenta(): ?array

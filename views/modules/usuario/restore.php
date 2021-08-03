@@ -92,7 +92,7 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                                 <th class="none">Dirección:</th>
                                                 <th>Rol</th>
                                                 <th class="none">Estado:</th>
-                                                <th>Municipio</th>
+                                                <th>Municipio:</th>
                                                 <th data-priority="1">Restaurar</th>
                                             </tr>
                                             </thead>
@@ -115,7 +115,7 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                                         <td><?= !empty($usuario->getDireccion()) ? $usuario->getDireccion() : 'No hay dirección disponible'; ?></td>
                                                         <td><?= $usuario->getRol(); ?></td>
                                                         <td><?= $usuario->getEstado(); ?></td>
-                                                        <td><?= $usuario->getMunicipios()->getNombre(); ?></td>
+                                                        <td><?= $usuario->getMunicipio()->getNombre(); ?></td>
                                                         <td>
                                                                 <div style="text-align: center;">
                                                                         <a href="../../../app/Controllers/MainController.php?controller=<?= $pluralModel ?>&action=restaurar&id=<?= $usuario->getId(); ?>"

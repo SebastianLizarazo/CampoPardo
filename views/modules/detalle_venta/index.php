@@ -96,12 +96,12 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                             if (!empty($arrDetalleV))
                                             /* @var $arrDetalleV DetalleVentas */
                                             foreach ($arrDetalleV as $DetalleV) {
-                                                if ($DetalleV->getVenta()->getEstado()=="Disponible"){
+                                                if ($DetalleV->getVenta()->getEstado()=="Pendiente"){
                                                 ?>
                                                 <tr>
 
                                                     <td><?= $DetalleV->getId(); ?></td>
-                                                    <td><?= $DetalleV->getVenta()->getNombre(); ?></td>
+                                                    <td><?= $DetalleV->getVenta()->getNumero(); ?></td>
                                                     <td><?= $DetalleV->getProducto()->getNombre(); ?></td>
                                                     <td><?= $DetalleV->getCantidadProducto(); ?></td>
                                                     <td>

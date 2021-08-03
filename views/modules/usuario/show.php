@@ -104,7 +104,7 @@ $frmSession = $_SESSION['frm' . $pluralModel] ?? NULL;
                                                 <p class="text-muted"><?= $DataEmpresa->getEstado() ?></p>
                                                 <hr>
                                                 <strong><i class="fas fa-city"></i>&nbsp; Municipio</strong>
-                                                <p class="text-muted"><?= $DataEmpresa->getMunicipioId()->getNombre()?></p>
+                                                <p class="text-muted"><?= $DataEmpresa->getMunicipio()->getNombre()?></p>
                                                 </p>
                                             </div>
                                         </div>

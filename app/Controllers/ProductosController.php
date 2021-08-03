@@ -125,8 +125,8 @@ class ProductosController
         //Parametros de Configuracion
         $params['isMultiple'] = $params['isMultiple'] ?? false;
         $params['isRequired'] = $params['isRequired'] ?? true;
-        $params['id'] = $params['id'] ?? "producto_id";
-        $params['name'] = $params['name'] ?? "producto_id";
+        $params['id'] = $params['id'] ?? "Producto_id";
+        $params['name'] = $params['name'] ?? "Producto_id";
         $params['defaultValue'] = $params['defaultValue'] ?? "";
         $params['class'] = $params['class'] ?? "form-control";
         $params['where'] = $params['where'] ?? "";
