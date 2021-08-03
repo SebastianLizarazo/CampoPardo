@@ -152,8 +152,7 @@ class VentasController
             foreach ($arrVentas as $venta)
                 if (!VentasController::ventaIsInArray($venta->getId(), $params['arrExcluir']))
                     $htmlSelect .= "<option " . (($venta != "") ? (($params['defaultValue'] == $venta->getId()) ? "selected" : "") : "") . " value='" . $venta->getId() . "'>"
-                        . $venta->getNumero();
-
+                        . $venta->getNumero().
             "</option>";
         }
         $htmlSelect .= "</select>";
