@@ -42,11 +42,11 @@
                     </a>
                 </li>
                 <li class="nav-header">Modulos Principales</li>
-                <?php  //if ( $_SESSION['UserInSession']['Rol'] == 'Administrador'){ ?>
+                <?php  if ( $_SESSION['UserInSession']['Rol'] == 'Administrador'){ ?>
 
                     <li class="nav-item has-treeview <?= strpos($_SERVER['REQUEST_URI'],'Usuarios') ? 'menu-open' : '' ?>">
                         <a href="#" class="nav-link <?= strpos($_SERVER['REQUEST_URI'],'Usuarios') ? 'active' : '' ?>">
-                            <i class="nav-icon fas fa-chair"></i>
+                            <i class="nav-icon fas fa-users"></i>
                             <p>
                                 Usuarios
                                 <i class="fas fa-angle-left right"></i>
@@ -69,7 +69,7 @@
                     </li>
                     <li class="nav-item has-treeview <?= strpos($_SERVER['REQUEST_URI'],'Productos') ? 'menu-open' : '' ?>">
                         <a href="#" class="nav-link <?= strpos($_SERVER['REQUEST_URI'],'Productos') ? 'active' : '' ?>">
-                            <i class="nav-icon far fa-images"></i>
+                            <i class="nav-icon fas fa-cheese"></i>
                             <p>
                                 Productos
                                 <i class="fas fa-angle-left right"></i>
@@ -92,7 +92,7 @@
                     </li>
                     <li class="nav-item has-treeview <?= strpos($_SERVER['REQUEST_URI'],'Ventas') ? 'menu-open' : '' ?>">
                         <a href="#" class="nav-link <?= strpos($_SERVER['REQUEST_URI'],'Ventas') ? 'active' : '' ?>">
-                         <i class="nav-icon fas fa-city"></i>
+                            <i class="nav-icon fas fa-dollar-sign"></i>
                             <p>
                                 Ventas
                                 <i class="fas fa-angle-left right"></i>
@@ -136,7 +136,7 @@
                             </li>
                         </ul>
                     </li>
-                <?php // } ?>
+                <?php  } ?>
             </ul>
 
         </nav>

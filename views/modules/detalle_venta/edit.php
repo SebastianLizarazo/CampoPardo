@@ -96,17 +96,16 @@ $frmSession = $_SESSION[$nameForm] ?? null;
                                                                     'name' => 'Venta_id',
                                                                     'defaultValue' => $DataDetalleV->getVenta()->getNumero(),
                                                                     'class' => 'form-control select2bs4 select2-info',
-                                                                    'where' => "estado = 'Disponible'"
+                                                                    'where' => "estado = 'Pendiente'"
                                                                 )
                                                             )
                                                             ?>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
-                                                        <label for="ProductoId" class="col-sm-2 col-form-label">Producto</label>
+                                                        <label for="Producto_id" class="col-sm-2 col-form-label">Producto</label>
                                                         <div class="col-sm-10">
-                                                            <?= ProductosController::selectProducto
-                                                            (array (
+                                                            <?= ProductosController::selectProducto(array (
                                                                     'id' => 'Producto_id',
                                                                     'name' => 'Producto_id',
                                                                     'defaultValue' => $DataDetalleV->getProducto()->getNombre(),

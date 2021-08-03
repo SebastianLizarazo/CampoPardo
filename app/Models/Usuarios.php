@@ -317,7 +317,7 @@ class Usuarios extends AbstractDBConnection implements Model
         $query = "INSERT INTO usuario VALUES (
             :id,:Nombres,:Apellidos,:TipoDocumento,:NumeroDocumento,:Telefono,:Email,:Contrasena,:Direccion,:Rol,:Estado,:Municipio_id)";
         if ($this->save($query)) {
-            $idUsuario = $this->getLastId('Usuario');
+            $idUsuario = $this->getLastId('usuario');
             $this->setId($idUsuario);
             return true;
         } else {
@@ -416,18 +416,18 @@ class Usuarios extends AbstractDBConnection implements Model
     public function jsonSerialize()
     {
         return [
-            ':id' => $this->getId(),
-            ':Nombres' => $this->getNombres(),
-            ':Apellidos' => $this->getApellidos(),
-            ':TipoDocumento' => $this->getTipoDocumento(),
-            ':NumeroDocumento' => $this->getNumeroDocumento(),
-            ':Telefono' => $this->getTelefono(),
-            ':Email' => $this->getEmail(),
-            ':Contrasena' => $this->getContrasena(),//Asigna la contraseña encriptada
-            ':Direccion' => $this->getDireccion(),
-            ':Rol' => $this->getRol(),
-            ':Estado' => $this->getEstado(),
-            ':Municipio_id' => $this->getMunicipioId(),
+            'id' => $this->getId(),
+            'Nombres' => $this->getNombres(),
+            'Apellidos' => $this->getApellidos(),
+            'TipoDocumento' => $this->getTipoDocumento(),
+            'NumeroDocumento' => $this->getNumeroDocumento(),
+            'Telefono' => $this->getTelefono(),
+            'Email' => $this->getEmail(),
+            'Contrasena' => $this->getContrasena(),//Asigna la contraseña encriptada
+            'Direccion' => $this->getDireccion(),
+            'Rol' => $this->getRol(),
+            'Estado' => $this->getEstado(),
+            'Municipio_id' => $this->getMunicipioId(),
         ];
     }
 
