@@ -76,17 +76,24 @@ class Ventas extends AbstractDBConnection implements Model
     /**
      * @return int
      */
-    public function getNumero(): int
+    public function getNumero(): ?int
     {
-        return $this->Numero;
+        return $this->Numero ?? NULL;
     }
 
     /**
-     * @param int $Numero
-     */
+    * @param int $Numero
+    */
     public function setNumero(int $Numero): void
     {
-        $this->Numero = $Numero;
+        if(empty($Numero) && empty($this->getNumero())){
+            $this->Connect();
+            $tmpfActura = ($this->getRow('select Numero from venta ORDER BY Numero desc limit 1')['Numero'] ?? 0);
+            $this->Numero = ($tmpfActura+1) ?? $Numero;
+            $this->Disconnect();
+        }else{
+            $this->Numero = $Numero;
+        }
     }
 
     /**
