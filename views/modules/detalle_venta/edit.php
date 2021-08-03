@@ -94,7 +94,7 @@ $frmSession = $_SESSION[$nameForm] ?? null;
                                                             <?= VentasController::selectVenta(array (
                                                                     'id' => 'Venta_id',
                                                                     'name' => 'Venta_id',
-                                                                    'defaultValue' => $DataDetalleV->getVenta(),
+                                                                    'defaultValue' => $DataDetalleV->getVenta()->getNumero(),
                                                                     'class' => 'form-control select2bs4 select2-info',
                                                                     'where' => "estado = 'Disponible'"
                                                                 )
@@ -109,7 +109,7 @@ $frmSession = $_SESSION[$nameForm] ?? null;
                                                             (array (
                                                                     'id' => 'Producto_id',
                                                                     'name' => 'Producto_id',
-                                                                    'defaultValue' => $DataDetalleV->getProducto(),
+                                                                    'defaultValue' => $DataDetalleV->getProducto()->getNombre(),
                                                                     'class' => 'form-control select2bs4 select2-info',
                                                                     'where' => "estado = 'Activo'"
                                                                 )

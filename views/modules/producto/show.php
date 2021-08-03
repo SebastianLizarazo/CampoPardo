@@ -95,19 +95,19 @@ $frmSession = $_SESSION['frm' . $pluralModel] ?? NULL;
                                                     <strong><i class="fas fa-dollar-sign"></i>&nbsp;Precio venta</strong>
                                                         <p class="text-muted"><?= $DataProducto->getPrecioVenta() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-dollar-sign"></i>&nbsp;Presentación</strong>
+                                                    <strong><i class="fas fa-wine-bottle"></i>&nbsp;Presentación</strong>
                                                         <p class="text-muted"><?= $DataProducto->getPresentacion() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-gifts"></i>&nbsp;Cantidad</strong>
+                                                    <strong><i class="fas fa-sort-amount-up"></i>&nbsp;Cantidad</strong>
                                                         <p class="text-muted"><?= $DataProducto->getCantidad() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-registered"></i>&nbsp;Descripción</strong>
+                                                    <strong><i class="fas fa-audio-description"></i>&nbsp;Descripción</strong>
                                                         <p class="text-muted"><?= $DataProducto->getDescripcion() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-sort-amount-up"></i>&nbsp;Estado</strong>
+                                                    <strong><i class="fas fa-check-square"></i>&nbsp;Estado</strong>
                                                         <p class="text-muted"><?= $DataProducto->getEstado() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-cubes"></i>&nbsp;Proveedor</strong>
+                                                    <strong><i class="fas fa-user-alt"></i>&nbsp;Proveedor</strong>
                                                         <p class="text-muted"><?= $DataProducto->getProveedor()->getNombres().' '.$DataProducto->getProveedor()->getApellidos() ?>
                                                     </p>
                                             </div>

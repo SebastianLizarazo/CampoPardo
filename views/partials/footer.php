@@ -5,7 +5,7 @@
             Derechos Reservados.
         </div>
         <div class="col-4">
-            <?php include_once ("social_buttons.php")?>
+
         </div>
         <div class="col-4">
             <div class="float-right d-none d-sm-block">
