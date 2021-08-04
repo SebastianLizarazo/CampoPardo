@@ -89,6 +89,7 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                                 <th>Medio de pago:</th>
                                                 <th data-priority="2">Estado</th>
                                                 <th data-priority="2">Cliente</th>
+                                                <th data-priority="2">Total</th>
                                                 <th data-priority="1">Acciones</th>
                                             </tr>
                                             </thead>
@@ -108,6 +109,7 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                                         <td><span class="badge badge-<?= $venta->getEstado() == "Saldada" ? "success" : "primary" ?>">
                                                                 <?= $venta->getEstado() ?>
                                                         <td><?= $venta->getCliente()->getNombres() ?></td>
+                                                        <td><?= $venta->getTotal(); ?></td>
                                                             </span>
                                                         </td>
                                                         <td>
@@ -163,6 +165,7 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                                 <th>Medio de pago:</th>
                                                 <th>Estado</th>
                                                 <th>Cliente</th>
+                                                <th>Total</th>
                                                 <th>Acciones</th>
                                             </tr>
                                             </tfoot>

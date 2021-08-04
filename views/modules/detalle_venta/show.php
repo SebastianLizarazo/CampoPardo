@@ -79,7 +79,7 @@ $frmSession = $_SESSION['frm' . $pluralModel] ?? NULL;
                                                     <strong><i class="fas fa-piggy-bank"></i>&nbsp;Venta</strong>
                                                         <p class="text-muted"><?= $DataDetalleV->getVenta()->getNumero() ?></p>
                                                 <hr>
-                                                    <strong><i class="fas fa-hamburger"></i>&nbsp;Nombre de producto</strong>
+                                                    <strong><i class="fas fa-cheese"></i></i>&nbsp;Nombre de producto</strong>
                                                         <p class="text-muted"><?= $DataDetalleV->getProducto()->getNombre()?></p>
                                                 <hr>
                                                     <strong><i class="fas fa-sort-numeric-up-alt"></i>&nbsp;Cantidad producto</strong>
