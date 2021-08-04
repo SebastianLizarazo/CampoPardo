@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="<?= $baseURL; ?>/views/index.php" class="brand-link">
-        <img src="<?= $baseURL ?>/views/public/img/Logo-entre-palos.jpeg"
+        <img src="<?= $baseURL ?>/views/public/img/Logo-Campo-Pardo.jpeg"
              alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3"
              style="opacity: .8">

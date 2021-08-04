@@ -188,7 +188,6 @@ $frmSession = $_SESSION[$nameForm] ?? null;
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                             <hr>
                                             <button id="frmName" name="frmName" value="<?= $nameForm ?>" type="submit" class="btn btn-info">Enviar</button>
                                             <a href="index.php" role="button" class="btn btn-default float-right">Cancelar</a>
