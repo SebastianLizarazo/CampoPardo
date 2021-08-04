@@ -20,7 +20,7 @@ class DetalleVentasController
         $this->dataDetalleVenta['id'] = $_FORM['id'] ?? null;
         $this->dataDetalleVenta['Producto_id'] = $_FORM['Producto_id'] ?? 0;
         $this->dataDetalleVenta['Venta_id'] = $_FORM['Venta_id'] ?? 0;
-        $this->dataDetalleVenta['CantidadProducto'] = $_FORM['CantidadProducto'] ?? 0;
+        $this->dataDetalleVenta['CantidadProducto'] = $_FORM['CantidadProducto'] ?? null;
     }
 
     public function create()
@@ -28,10 +28,14 @@ class DetalleVentasController
         try {
             if (!empty($this->dataDetalleVenta['Producto_id']) && !empty($this->dataDetalleVenta['Venta_id']) &&
                 !DetalleVentas::detalleVentaRegistrada($this->dataDetalleVenta['Producto_id'], $this->dataDetalleVenta['Venta_id'])){
-                $DetalleVenta = new DetalleVentas($this->dataDetalleVenta);
-                if ($DetalleVenta->insert()){
-                    unset($_SESSION['frmCreateDetalleVenta']);
-                    header("Location: ../../views/modules/detalle_venta/index.php?respuesta=success&mensaje=Detalle Venta Registrada");
+                if (!empty($this->dataDetalleVenta['CantidadProducto']) && DetalleVentas::CantidadDisponible($this->dataDetalleVenta['CantidadProducto'], $this->dataDetalleVenta['Producto_id'])){
+                    $DetalleVenta = new DetalleVentas($this->dataDetalleVenta);
+                    if ($DetalleVenta->insert()) {
+                        unset($_SESSION['frmCreateDetalleVenta']);
+                        header("Location: ../../views/modules/detalle_venta/index.php?respuesta=success&mensaje=Detalle Venta Registrada");
+                    }
+                }else{
+                    header("Location: ../../views/modules/detalle_venta/create.php?respuesta=error&mensaje=No hay esa cantidad de producto disponible");
                 }
             }else{
                 header("Location: ../../views/modules/detalle_venta/create.php?respuesta=error&mensaje=Ya existe un detalle venta con este producto y venta a la vez");
@@ -45,11 +49,15 @@ class DetalleVentasController
          try {
                 if (!DetalleVentas::detalleVentaRegistrada($this->dataDetalleVenta['Producto_id'], $this->dataDetalleVenta['Venta_id'],
                     $this->dataDetalleVenta['id'])){
-                    $dtvta = new DetalleVentas($this->dataDetalleVenta);
-                    if ($dtvta->update()){
-                        unset($_SESSION['frmEditDetalleVenta']);
+                    if (!empty($this->dataDetalleVenta['CantidadProducto']) && DetalleVentas::CantidadDisponible($this->dataDetalleVenta['CantidadProducto'], $this->dataDetalleVenta['Producto_id'])) {
+                        $dtvta = new DetalleVentas($this->dataDetalleVenta);
+                        if ($dtvta->update()) {
+                            unset($_SESSION['frmEditDetalleVenta']);
+                        }
+                        header("Location: ../../views/modules/detalle_venta/show.php?id=" . $dtvta->getId() . "&respuesta=success&mensaje=Detalle Venta Actualizada");
+                    }else{
+                        header("Location: ../../views/modules/detalle_venta/edit.php?id=" . $this->dataDetalleVenta['id'] . "&respuesta=error&mensaje=No hay esa cantidad de producto disponible");
                     }
-                    header("Location: ../../views/modules/detalle_venta/show.php?id=" . $dtvta->getId() . "&respuesta=success&mensaje=Detalle Venta Actualizada");
                 }else{
                     header("Location: ../../views/modules/detalle_venta/edit.php?id=" . $this->dataDetalleVenta['id'] . "&respuesta=error&mensaje=Ya existe un detalle venta con este producto y venta a la vez");
                 }

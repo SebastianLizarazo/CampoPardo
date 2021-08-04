@@ -63,6 +63,20 @@ class Productos extends AbstractDBConnection implements Model
         return (!empty($prdTmp)? true : false);
     }
 
+    public static function productoDescontado(int $CantProd, Productos $Prod): ?bool
+    {
+        $CantidadDisponible = $Prod->getCantidad();
+        $resul = $CantidadDisponible - $CantProd;
+        $Prod->setCantidad($resul);
+        if($Prod->update())
+        {
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
     public function __destruct()
     {
         if ($this->isConnected()){
