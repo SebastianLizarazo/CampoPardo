@@ -156,9 +156,8 @@ $frmSession = $_SESSION[$nameForm] ?? null;
                                                     <div class="form-group row">
                                                         <label for="Descripcion" class="col-sm-2 col-form-label">Descripción</label>
                                                         <div class="col-sm-10">
-                                                        <textarea name="Descripcion" id="Descripcion" class="form-control" placeholder="Ingrese una descripción">
-                                                            <?= $DataProducto->getDescripcion() ?>
-                                                        </textarea>
+                                                            <input required type="text" class="form-control" id="Descripcion" name="Descripcion"
+                                                                   placeholder="Ingrese una descripción" value="<?= $frmSession['Descripcion'] ?? '' ?>">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">

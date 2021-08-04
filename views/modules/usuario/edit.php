@@ -182,8 +182,7 @@ $frmSession = $_SESSION[$nameForm] ?? null;
                                                                     'defaultValue' =>$DataUsuario->getMunicipioId(),
                                                                     'class' => 'form-control select2bs4 select2-info',
                                                                     'where' => "estado = 'Activo'"
-                                                                )
-                                                            )
+                                                                ))
                                                             ?>
                                                         </div>
                                                     </div>
@@ -193,31 +192,31 @@ $frmSession = $_SESSION[$nameForm] ?? null;
                                             <a href="index.php" role="button" class="btn btn-default float-right">Cancelar</a>
                                         </form>
                                     </div>
-                                    <!-- /.card-body -->
+                                    <!-- /.card-body -->                       
 
-                                <?php } else { ?>
-                                    <div class="alert alert-danger alert-dismissible">
-                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                                            &times;
-                                        </button>
-                                        <h5><i class="icon fas fa-ban"></i> Error!</h5>
-                                        No se encontro ningun registro con estos parametros de
-                                        busqueda <?= ($_GET['mensaje']) ?? "" ?>
-                                    </div>
-                                <?php } ?>
-                                </p>
-                            <?php } ?>
-                        </div>
-                        <!-- /.card -->
+                        <?php } else { ?>
+                            <div class="alert alert-danger alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+                                    &times;
+                                </button>
+                                <h5><i class="icon fas fa-ban"></i> Error!</h5>
+                                No se encontro ningun registro con estos parametros de
+                                busqueda <?= ($_GET['mensaje']) ?? "" ?>
+                            </div>
+                        <?php } ?>
+                        </p>
+                        <?php } ?>
                     </div>
+                    <!-- /.card -->
                 </div>
             </div>
-        </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
 
-    <?php require('../../partials/footer.php'); ?>
+<?php require('../../partials/footer.php'); ?>
 </div>
 <!-- ./wrapper -->
 <?php require('../../partials/scripts.php'); ?>
