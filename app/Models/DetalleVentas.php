@@ -40,6 +40,21 @@ class DetalleVentas extends AbstractDBConnection implements Model
         return (!empty($dtvTmp)? true : false);
     }
 
+    public static function CantidadDisponible(int $CantProd, int $idProd): ?bool
+    {
+        $Prod = Productos::searchForId($idProd);
+        if (!empty($Prod)){
+            $CantidadDisponible = $Prod->getCantidad();
+            if ($CantProd > $CantidadDisponible){
+                return false;
+            }else{
+                return Productos::productoDescontado($CantProd, $Prod);
+            }
+        }else {
+            return false;
+        }
+    }
+
     public function __destruct()
     {
        if ($this->isConnected()){

@@ -47,7 +47,7 @@ require("partials/routes.php"); ?>
                     <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column mx-auto">
                         <div class="card bg-light d-flex flex-fill">
                             <div class="card-header text-muted border-bottom-0">
-                               Admin CEO - Campo pardo
+                               Admin CEO - Campo Pardo
                             </div>
                             <div class="card-body pt-0">
                                 <div class="row">
@@ -60,7 +60,7 @@ require("partials/routes.php"); ?>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer display responsive nowrap" style="width:100%;">
+                            <div class="card-footer">
                                 <div class="text-right">
                                     <div class="mr-3">
                                         <a href="modules/usuario/index.php" class="btn btn-sm btn-bitbucket">
@@ -86,6 +86,7 @@ require("partials/routes.php"); ?>
             <br>
             <br>
             <br>
+        </div>
         </section>
         <!-- /.content -->
     </div>
