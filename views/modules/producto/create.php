@@ -140,13 +140,12 @@ $frmSession = $_SESSION[$nameForm] ?? NULL; //Nombre del formulario (frmUsuarios
                                                                 placeholder="Ingrese la cantidad del producto" value="<?= $frmSession['Cantidad'] ?? '' ?>" >
                                                     </div>
                                                 </div>
-                                                <div class="form-group row">
-                                                    <label for="Descripcion" class="col-sm-2 col-form-label">Descripción</label>
-                                                    <div class="col-sm-10">
-                                                        <textarea name="Descripcion" id="Descripcion" class="form-control" placeholder="Ingrese una descripción">
-                                                            <?= $frmSession['Descripcion'] ?? '' ?>
-                                                        </textarea>
-                                                    </div>
+                                              <div class="form-group row">
+                                                  <label for="Descripcion" class="col-sm-2 col-form-label">Descripción</label>
+                                                  <div class="col-sm-10">
+                                                      <input required type="text" class="form-control" id="Descripcion" name="Descripcion"
+                                                             placeholder="Ingrese una descripción" value="<?= $frmSession['Descripcion'] ?? '' ?>">
+                                                  </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="Estado" class="col-sm-2 col-form-label">Estado</label>
