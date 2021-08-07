@@ -55,7 +55,7 @@ require("partials/routes.php"); ?>
                                         <h2 class="lead"><b>Jeisson Pardo</b></h2>
                                         <ul class="ml-4 mb-0 fa-ul text-muted">
                                             <li class="small"><span class="fa-li"><i class="fas fa-map-marker-alt"></i></span> Barrio: Villa del sol Sogamoso</li>
-                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Telefono #: 111111111</li>
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Telefono #: 3203487292</li>
                                         </ul>
                                     </div>
                                 </div>
