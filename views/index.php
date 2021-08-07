@@ -36,31 +36,57 @@ require("partials/routes.php"); ?>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
-
-        <!-- Main content -->
-        <section class="content">
-            <div class="row ">
-                <div class="col-12 col-sm-10 col-lg-8 mx-auto mb-5">
-                    <img class="card-img-top" src="../views/public/img/Entre-palos-inicio.jpeg"
-                         alt="Entre palos inicio">
-                    <div class="bg-white p-5 shadow rounded">
-                        <div class=" m-auto">
-                            <h1 class="mb-0">¿Qué quieres hacer hoy?</h1>
-                        </div>
-                            <div class="d-flex justify-content-between align-items-center mt-5">
-                                <div class="btn-group btn-group-sm m-auto">
-                                    <a href="<?= $baseURL ?>/views/modules/producto/index.php" class="btn btn-success">
-                                        <strong> Gestionar productos </strong>
-                                    </a>
-                                    <a href="<?= $baseURL ?>/views/modules/usuario/index.php" class="btn btn-primary">
-                                        <strong> Gestionar usuarios </strong>
-                                    </a>
+        <div class="card card-solid">
+            <br>
+            <div class=" m-auto">
+                <h1 class="mb-0">¿Qué estás buscando?</h1>
+            </div>
+            <br>
+            <div class="card-body pb-0">
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column mx-auto">
+                        <div class="card bg-light d-flex flex-fill">
+                            <div class="card-header text-muted border-bottom-0">
+                               Admin CEO - Campo Pardo
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="lead"><b>Jeisson Pardo</b></h2>
+                                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                                            <li class="small"><span class="fa-li"><i class="fas fa-map-marker-alt"></i></span> Barrio: Villa del sol Sogamoso</li>
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> Telefono #: 3203487292</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="card-footer">
+                                <div class="text-right">
+                                    <div class="mr-3">
+                                        <a href="modules/usuario/index.php" class="btn btn-sm btn-bitbucket">
+                                            <i class="fas fa-users"></i>&nbsp;Gestionar usuarios
+                                        </a>
+                                        <a href="modules/venta/index.php" class="btn btn-sm btn-success">
+                                            <i class="fas fa-dollar-sign"></i>&nbsp;Gestionar ventas
+                                        </a>
+                                        <div class="mt-2 mr-5">
+                                            <a href="modules/producto/index.php" class="btn btn-sm btn-primary">
+                                                <i class="fas fa-cheese"></i>&nbsp;Gestionar productos
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
+        <!-- Main content -->
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
         </section>
         <!-- /.content -->
     </div>
