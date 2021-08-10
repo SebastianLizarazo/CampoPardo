@@ -106,15 +106,15 @@ $frmSession = $_SESSION[$nameForm] ?? null;
                                                         <div class="col-sm-10">
                                                             <select required id="TipoDocumento" name="TipoDocumento" class="custom-select">
                                                                 <option value="">Seleccione</option>
-                                                                <option <?= ( $DataUsuario->getRol()  == "CC") ? "selected" : ""; ?> value="CC">CC</option>
-                                                                <option <?= ( $DataUsuario->getRol() == "TI") ? "selected" : ""; ?> value="TI">TI</option>
+                                                                <option <?= ( $DataUsuario->getTipoDocumento()  == "CC") ? "selected" : ""; ?> value="CC">CC</option>
+                                                                <option <?= ( $DataUsuario->getTipoDocumento() == "TI") ? "selected" : ""; ?> value="TI">TI</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label for="NumeroDocumento" class="col-sm-2 col-form-label">NumeroDocumento</label>
                                                         <div class="col-sm-10">
-                                                            <input required type="number" min="1000000000" max="9999999999" class="form-control" id="NumeroDocumento"
+                                                            <input required type="number" min="1111111" max="9999999999" class="form-control" id="NumeroDocumento"
                                                                    name="NumeroDocumento" value="<?= $DataUsuario->getNumeroDocumento(); ?>"
                                                                    placeholder="Ingrese el numero de documento del usuario">
                                                         </div>

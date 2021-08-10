@@ -5,15 +5,15 @@ use App\Models\Usuarios;
 use App\Models\Municipios;
 
 $arrUsuario1=[
-    'Nombres' => 'David Felipe',
-    'Apellidos' => 'Diaz Vargas',
+    'Nombres' => 'Campo',
+    'Apellidos' => 'Pardo',
     'TipoDocumento' => 'CC',
     'NumeroDocumento' => '1245432350',
     'Telefono' => 3132307498,
     'Email' => 'campopardo@gmail.com',
-    'Direccion' => 'Av coyote 12-56',
     'Contrasena' => '123456789',
-    'Rol' => 'Proveedor',
+    'Direccion' => 'Av coyote 12-56',
+    'Rol' => 'Administrador',
     'Estado' => 'Activo',
     'Municipio_id' => 5001
 ];
@@ -67,13 +67,13 @@ $arrUsuario4=[
 //var_dump($objectUsuario1);
 //$objectUsuario1->update();
 
-//$objectUsuario2= new Usuarios($arrUsuario2);
-//var_dump($objectUsuario2);
+$objectUsuario2= new Usuarios($arrUsuario2);
+$objectUsuario2->insert();
 
 //$objectUsuario2->insert();
-$objectUsuario4= new Usuarios($arrUsuario4);
+//$objectUsuario4= new Usuarios($arrUsuario4);
 //var_dump($objectUsuario1);
-$objectUsuario4->insert();
+//$objectUsuario4->insert();
 
 //$PruebaUpdate=Usuarios::searchForId(2);//Llamamos al usuario que queremos modificar
 //$PruebaUpdate->setEstado('Inactivo');

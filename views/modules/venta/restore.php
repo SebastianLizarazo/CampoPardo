@@ -86,10 +86,11 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                                 <th>N°</th>
                                                 <th>Numero</th>
                                                 <th>Fecha de venta</th>
-                                                <th class="none">Medio de pago:</th>
-                                                <th>Estado</th>
-                                                <th>Cliente</th>
-                                                <th data-priority="1">Cambiar estado</th>
+                                                <th>Medio de pago</th>
+                                                <th data-priority="2">Estado</th>
+                                                <th data-priority="2">Cliente</th>
+                                                <th data-priority="2">Total</th>
+                                                <th data-priority="1">Restaurar</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -107,6 +108,7 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                                             <td><?= $venta->getMedioPago(); ?></td>
                                                             <td><?= $venta->getEstado(); ?></td>
                                                             <td><?= $venta->getCliente()->getNombres(); ?></td>
+                                                            <td><?= $venta->getTotal(); ?></td>
                                                             <td>
                                                                 <div style="text-align: center;">
                                                                     <?php if ($venta->getEstado() == "Cancelada") { ?>
@@ -127,10 +129,11 @@ $frmSession = $_SESSION['frm'.$pluralModel] ?? NULL;
                                                 <th>N°</th>
                                                 <th>Numero</th>
                                                 <th>Fecha de venta</th>
-                                                <th class="none">Medio de pago:</th>
+                                                <th>Medio de pago</th>
                                                 <th>Estado</th>
                                                 <th>Cliente</th>
-                                                <th>Cambiar estado</th>
+                                                <th>Total</th>
+                                                <th>Restaurar</th>
                                             </tr>
                                             </tfoot>
                                         </table>

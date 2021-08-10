@@ -101,7 +101,7 @@ $frmSession = $_SESSION[$nameForm]?? NULL; //Nombre del formulario (frmUsuarios)
                                     <div class="form-group row">
                                         <label for="NumeroDocumento" class="col-sm-2 col-form-label">NumeroDocumento</label>
                                         <div class="col-sm-10">
-                                            <input required type="number" min="1000000000" max="9999999999" class="form-control" id="NumeroDocumento" name="NumeroDocumento"
+                                            <input required type="number" min="1111111" max="9999999999" class="form-control" id="NumeroDocumento" name="NumeroDocumento"
                                                    placeholder="Ingrese el numero de documento" value="<?= $frmSession['Telefono'] ?? '' ?>">
                                         </div>
                                             </div>
