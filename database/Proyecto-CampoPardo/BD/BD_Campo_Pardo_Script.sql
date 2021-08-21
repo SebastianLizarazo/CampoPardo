@@ -1246,6 +1246,9 @@ CREATE TABLE IF NOT EXISTS `bdcampopardo`.`Usuario` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+INSERT INTO `usuario` (`id`, `Nombres`, `Apellidos`, `TipoDocumento`, `NumeroDocumento`, `Telefono`, `Email`, `Contrasena`, `Direccion`, `Rol`, `Estado`, `Municipio_id`) VALUES
+    (1, 'Jeisson', 'Pardo', 'CC', 1009887888, 3132098998, 'lacteo@gmail.com', '$2y$10$E1T9.89XDbT6MgKtlI8DcePyUVvoN92i3JRMZp7HTRrLkRd56LJDa', 'cra 24 n 34', 'Administrador', 'Activo', 5004);
+
 
 -- -----------------------------------------------------
 -- Table `bdcampopardo`.`Producto`
